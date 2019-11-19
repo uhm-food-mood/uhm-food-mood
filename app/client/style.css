@@ -37,3 +37,14 @@
 .center {
   text-align: center !important;
 }
+.landing{
+  color: white;
+  text-align: center;
+  font-family: 'Josefin Sans SemiBold';
+}
+
+.foodmoodbg-landing {
+  background-image: url('images/foodmood-bg.jpg') ;
+  background-size: cover;
+  height: 500px;
+}
