@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container,Card } from 'semantic-ui-react';
+import { Container, Card } from 'semantic-ui-react';
+import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import MenuItem from '/imports/ui/components/MenuItem';
@@ -9,7 +10,7 @@ import { MenuItems } from '../../api/menu/MenuItems';
 class Landing extends React.Component {
   render() {
     return (
-        <div className='foodmoodbg-landing'>
+        <div className='foodmoodbg'>
           <Container>
             <h1 className='landing'>WELCOME TO UHM FOOD MOOD</h1>
             <h3 className='landing'>Your favorites. All in one place!</h3>
@@ -19,7 +20,7 @@ class Landing extends React.Component {
               They will be able to see which of their favorites are available right at this moment.
               Vendors can add their own menu items to the catalog of UH food options.
             </h4>
-            <h1 className='landing'>Student's Top Choices</h1>
+            <h1 className='landing'>Students&#39; Top Choices</h1>
             <Card.Group itemsPerRow={3}>
               {this.props.menuitems.map((menuitems, index) => <MenuItem key={index} menuitems={menuitems} />)}
             </Card.Group>
@@ -40,8 +41,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('AllMenuItems');
   return {
-    menuitems: MenuItems.find({}).fetch(),
+    menuitems: MenuItems.find({}, { limit: 3 }).fetch(),
     ready: subscription.ready(),
   };
 })(Landing);
-
