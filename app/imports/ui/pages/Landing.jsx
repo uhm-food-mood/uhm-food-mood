@@ -15,24 +15,7 @@ class Landing extends React.Component {
               They will be able to see which of their favorites are available right at this moment.
               Vendors can add their own menu items to the catalog of UH food options.
             </h4>
-            <Card.Group itemsPerRow={2}>
-              <Card>
-                  <Card.Content>
-                    <Image centered size= 'medium'
-                           /* eslint-disable-next-line max-len */
-                           src='https://static.vecteezy.com/system/resources/previews/000/134/503/non_2x/free-vector-food-illustration.jpg' />
-                    <Card.Header>Today&#39;s Top Picks</Card.Header>
-                  </Card.Content>
-              </Card>
-              <Card>
-                <Card.Content>
-                  <Image centered size= 'medium'
-                         {/* eslint-disable-next-line max-len */}
-                         src='https://static.vecteezy.com/system/resources/previews/000/134/503/non_2x/free-vector-food-illustration.jpg' />
-                  <Card.Header>Today&#39;s Top Picks</Card.Header>
-                </Card.Content>
-              </Card>
-            </Card.Group>
+            <h1 className='landing'>Student's Top Choices</h1>
           </Container>
 
         </div>
