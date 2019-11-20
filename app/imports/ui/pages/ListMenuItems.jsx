@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Header, Loader } from 'semantic-ui-react';
+import { Container, Card, Header, Loader, Search, Divider } from 'semantic-ui-react';
 import MenuItem from '/imports/ui/components/MenuItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -21,6 +21,9 @@ class ListMenuItems extends React.Component {
         <div className="foodmoodbg">
         <Container>
           <Header inverted as="h2" textAlign="center" className="Montserrat">Your Favorites</Header>
+          <Divider inverted/>
+          < Search className='search' fluid/>
+          <br/>
           <Card.Group itemsPerRow={3}>
             {this.props.menuitems.map((menuitems, index) => <MenuItem key={index} menuitems={menuitems} />)}
           </Card.Group>
