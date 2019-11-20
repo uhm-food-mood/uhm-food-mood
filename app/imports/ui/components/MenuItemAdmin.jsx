@@ -23,7 +23,9 @@ class MenuItemAdmin extends React.Component {
             <Card.Meta>{this.props.menuitems.vendor} - ${this.props.menuitems.price}</Card.Meta>
             <Card.Description>{this.props.menuitems.availability}</Card.Description>
             <Label color='red'>{this.props.menuitems.ethnicity}</Label>
-            <Label color='green'>vegan: {this.props.menuitems.vegan}</Label>
+            {this.props.menuitems.vegan === 'yes' ? (
+                <Label color='green'>vegan</Label>
+            ) : ''}
           </Card.Content>
           <Card.Content extra>
             <Link to={`/edit/${this.props.menuitems._id}`}>Edit</Link>

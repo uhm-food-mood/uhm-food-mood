@@ -16,6 +16,9 @@
     { "name": "Nachos", "image": "https://www.pamperedchef.ca/iceberg/com/recipe/1565476-lg.jpg", "vendor": "Sodexo", "owner": "vendor@foo.com", "price": "3.50", "availability": "2019-11-17", "vegan": "yes", "ethnicity": "Mexican" },
     { "name": "Enchiladas", "image": "https://www.pamperedchef.ca/iceberg/com/recipe/1565476-lg.jpg", "vendor": "Sodexo", "owner": "vendor@foo.com", "price": "5.50", "availability": "2019-11-18", "vegan": "no", "ethnicity": "Mexican" },
     { "name": "Sushi", "image": "https://www.pamperedchef.ca/iceberg/com/recipe/1565476-lg.jpg", "vendor": "Sodexo", "owner": "vendor@foo.com", "price": "10.50", "availability": "2019-11-17", "vegan": "no", "ethnicity": "Japanese" },
+    { "name": "Nachos", "image": "https://www.pamperedchef.ca/iceberg/com/recipe/1565476-lg.jpg", "vendor": "Sodexo", "owner": "john@foo.com", "price": "3.50", "availability": "2019-11-17", "vegan": "yes", "ethnicity": "Mexican" },
+    { "name": "Enchiladas", "image": "https://www.pamperedchef.ca/iceberg/com/recipe/1565476-lg.jpg", "vendor": "Sodexo", "owner": "john@foo.com", "price": "5.50", "availability": "2019-11-18", "vegan": "no", "ethnicity": "Mexican" },
+    { "name": "Sushi", "image": "https://www.pamperedchef.ca/iceberg/com/recipe/1565476-lg.jpg", "vendor": "Sodexo", "owner": "john@foo.com", "price": "10.50", "availability": "2019-11-17", "vegan": "no", "ethnicity": "Japanese" },
     { "name": "Chicken Sandwich", "image": "https://www.pamperedchef.ca/iceberg/com/recipe/1565476-lg.jpg", "vendor": "Sodexo", "owner": "vendor@foo.com", "price": "3.57", "availability": "2019-11-17", "vegan": "no", "ethnicity": "American" }
   ]
 }

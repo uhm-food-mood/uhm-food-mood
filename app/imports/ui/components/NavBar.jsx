@@ -19,7 +19,7 @@ class NavBar extends React.Component {
                    exact to="/" key='add' className='montserrat'>FOOD LISTINGS</Menu.Item>
         {this.props.currentUser ? (
             [<Menu.Item as={NavLink} className='montserrat' activeClassName="active"
-                        exact to="/list" key='add'>YOUR LISTINGS</Menu.Item>]
+                        exact to="/list" key='add'>FAVORITES</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             <Menu.Item as={NavLink} className='montserrat' activeClassName="active"

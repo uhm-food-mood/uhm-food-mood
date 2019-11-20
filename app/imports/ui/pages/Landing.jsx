@@ -17,7 +17,9 @@ class Landing extends React.Component {
             <Card.Group itemsPerRow={2}>
               <Card>
                   <Card.Content>
-                    <Image centered size= 'medium' src='https://static.vecteezy.com/system/resources/previews/000/134/503/non_2x/free-vector-food-illustration.jpg' />
+                    <Image centered size= 'medium'
+                           /* eslint-disable-next-line max-len */
+                           src='https://static.vecteezy.com/system/resources/previews/000/134/503/non_2x/free-vector-food-illustration.jpg' />
                     <Card.Header>Today's Top Picks</Card.Header>
                   </Card.Content>
               </Card>
