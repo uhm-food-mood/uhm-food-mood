@@ -52,3 +52,7 @@
 .landing-description {
   padding-top: 100px;
 }
+
+.search {
+  text-align: right !important;
+}
