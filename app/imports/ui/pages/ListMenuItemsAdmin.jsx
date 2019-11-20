@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Header, Loader, Search } from 'semantic-ui-react';
+import { Container, Card, Header, Loader, Search, Divider } from 'semantic-ui-react';
 import MenuItemAdmin from '/imports/ui/components/MenuItemAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -21,6 +21,7 @@ class ListMenuItemsAdmin extends React.Component {
         <div className="foodmoodbg">
         <Container>
           <Header inverted as="h2" textAlign="center" className="Montserrat">Menu Item Listings</Header>
+          <Divider/>
           <div className="center">
           <Search />
           <br/>

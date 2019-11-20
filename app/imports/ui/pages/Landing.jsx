@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Card, Grid, Image } from 'semantic-ui-react';
+import { Container, Card, Grid, Image, Divider } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -12,7 +12,9 @@ class Landing extends React.Component {
     return (
         <div className='foodmoodbg'>
           <Container>
+            <br/>
             <h1 className='landing'>WELCOME TO UHM FOOD MOOD</h1>
+            <Divider/>
             <Grid>
               <Grid.Column width={8}>
                 < Image src='images/landing-1.png'/>
@@ -20,7 +22,7 @@ class Landing extends React.Component {
               <Grid.Column width={8} >
                 <div className='landing-description'>
             <h1 className='landing'>Your favorites. All in one place!</h1>
-            <h2 className= 'landing'>UHM Food Mood strives to give an easily
+            <h2 className='josefin-light'>UHM Food Mood strives to give an easily
               accessible catalog of all food options at UH Manoa.
               Users can pick their favorites on campus, from food trucks to options at Campus Center and Paradise Palms.
               They will be able to see which of their favorites are available right at this moment.
@@ -29,6 +31,7 @@ class Landing extends React.Component {
                 </div>
               </Grid.Column>
             </Grid>
+            <Divider/>
             <h1 className='landing'>Students&#39; Top Choices</h1>
             <Card.Group itemsPerRow={3}>
               {this.props.menuitems.map((menuitems, index) => <MenuItem key={index} menuitems={menuitems} />)}

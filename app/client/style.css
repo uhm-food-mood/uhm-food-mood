@@ -2,6 +2,9 @@
 .josefin {
   font-family: 'Josefin Sans SemiBold';
 }
+.josefin-light {
+  font-family: 'Josefin Sans';
+}
 .Montserrat {
   font-family: 'Montserrat' !important;
 }
@@ -51,6 +54,9 @@
 
 .landing-description {
   padding-top: 100px;
+  color: white;
+  text-align: center;
+  font-family: 'Josefin Sans';
 }
 
 .search {
