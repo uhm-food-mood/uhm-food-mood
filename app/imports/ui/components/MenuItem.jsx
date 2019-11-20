@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image, Label, Icon, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class MenuItem extends React.Component {
@@ -16,7 +16,9 @@ class MenuItem extends React.Component {
             />
             <Card.Header>{this.props.menuitems.name}</Card.Header>
             <Card.Meta>{this.props.menuitems.vendor} - ${this.props.menuitems.price}</Card.Meta>
-            <Card.Description>{this.props.menuitems.availability}</Card.Description>
+            <Card.Description>{this.props.menuitems.starting}:00 {this.props.menuitems.startingPeriod} -
+              {this.props.menuitems.ending}:00 {this.props.menuitems.endingPeriod}
+            </Card.Description>
             <Button icon>
               <Icon name='heart' />
             </Button>
