@@ -13,6 +13,10 @@ const MenuItemsSchema = new SimpleSchema({
   owner: String,
   price: String,
   availability: String,
+  starting: Number,
+  startingPeriod: String,
+  ending: Number,
+  endingPeriod: String,
   vegan: String,
   ethnicity: String,
 }, { tracker: Tracker });
