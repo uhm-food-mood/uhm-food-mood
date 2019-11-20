@@ -10,7 +10,7 @@ import Landing from '../pages/Landing';
 import ListMenuItems from '../pages/ListMenuItems';
 import ListMenuItemsAdmin from '../pages/ListMenuItemsAdmin';
 import ListMenuItemsVendor from '../pages/ListMenuItemsVendor';
-import AddStuff from '../pages/AddStuff';
+import AddMenuItem from '../pages/AddMenuItem';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -29,7 +29,8 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListMenuItems}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
+              <VendorProtectedRoute path="/add" component={AddMenuItem}/>
+              <AdminProtectedRoute path="/add" component={AddMenuItem}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListMenuItemsAdmin}/>
               <VendorProtectedRoute path="/vendor" component={ListMenuItemsVendor}/>
