@@ -29,8 +29,7 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListMenuItems}/>
-              <VendorProtectedRoute path="/add" component={AddMenuItem}/>
-              <AdminProtectedRoute path="/add" component={AddMenuItem}/>
+              <VendorAdminProtectedRoute path="/add" component={AddMenuItem}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListMenuItemsAdmin}/>
               <VendorProtectedRoute path="/vendor" component={ListMenuItemsVendor}/>
@@ -95,6 +94,21 @@ const VendorProtectedRoute = ({ component: Component, ...rest }) => (
     />
 );
 
+const VendorAdminProtectedRoute = ({ component: Component, ...rest }) => (
+    <Route
+        {...rest}
+        render={(props) => {
+          const isLogged = Meteor.userId() !== null;
+          const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
+          const isVendor = Roles.userIsInRole(Meteor.userId(), 'vendor');
+          return ((isLogged && isAdmin) || (isLogged && isVendor)) ?
+              (<Component {...props} />) :
+              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              );
+        }}
+    />
+);
+
 /** Require a component and location to be passed to each ProtectedRoute. */
 ProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
@@ -108,6 +122,11 @@ AdminProtectedRoute.propTypes = {
 };
 
 VendorProtectedRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
+
+VendorAdminProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,
 };
