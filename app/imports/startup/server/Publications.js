@@ -35,3 +35,7 @@ Meteor.publish('MenuItemsAdmin', function publish() {
   }
   return this.ready();
 });
+
+Meteor.publish('AllMenuItems', function publish() {
+    return MenuItems.find();
+});
