@@ -10,6 +10,12 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.foodlistingsbg {
+  background-color: ivory;
+  color: black;
+}
+
 .ui.cards > .card > .content > .header:not(.ui), .ui.card > .content > .header:not(.ui) {
   font-family: 'Montserrat';
   padding-top: 10px;
@@ -39,6 +45,12 @@
 }
 .landing{
   color: white;
+  text-align: center;
+  font-family: 'Josefin Sans SemiBold';
+}
+
+.foodlisting-landing {
+  color: black;
   text-align: center;
   font-family: 'Josefin Sans SemiBold';
 }
