@@ -8,7 +8,7 @@ import { MenuItems } from '../../api/menu/MenuItems';
 import SearchForm from '../components/SearchForm';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListAllMenuItems extends React.Component {
+class SearchResults extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -19,27 +19,27 @@ class ListAllMenuItems extends React.Component {
   renderPage() {
     return (
         <div className="foodmoodbg">
-        <Container>
-          <Header inverted as="h2" textAlign="center" className="Montserrat">All Food Options</Header>
-          <Divider/>
-          <div className="right">
-          <SearchForm />
-          </div>
-          <div className="center">
-          <br/>
-          </div>
-          <Card.Group itemsPerRow={3}>
-            {this.props.menuitems.map((menuitems, index) => <MenuItem key={index} menuitems={menuitems} />)}
-          </Card.Group>
-          <br/>
-        </Container>
+          <Container>
+            <Header inverted as="h2" textAlign="center" className="Montserrat">Search Results</Header>
+            <Divider/>
+            <div className="right">
+              <SearchForm />
+            </div>
+            <div className="center">
+              <br/>
+            </div>
+            <Card.Group itemsPerRow={3}>
+              {this.props.menuitems.map((menuitems, index) => <MenuItem key={index} menuitems={menuitems} />)}
+            </Card.Group>
+            <br/>
+          </Container>
         </div>
     );
   }
 }
 
 /** Require an array of Stuff documents in the props. */
-ListAllMenuItems.propTypes = {
+SearchResults.propTypes = {
   menuitems: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -52,4 +52,4 @@ export default withTracker(() => {
     menuitems: MenuItems.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(ListAllMenuItems);
+})(SearchResults);
