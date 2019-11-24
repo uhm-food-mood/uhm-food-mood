@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListMenuItems from '../pages/ListMenuItems';
+import ListAllMenuItems from '../pages/ListAllMenuItems';
 import ListMenuItemsAdmin from '../pages/ListMenuItemsAdmin';
 import ListMenuItemsVendor from '../pages/ListMenuItemsVendor';
 import AddMenuItem from '../pages/AddMenuItem';
@@ -33,6 +34,7 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/listings" component={FoodListings}/>
               <Route path="/DaSpot" component={DaSpot}/>
+              <Route path="/allListings" component={ListAllMenuItems}/>
               <ProtectedRoute path="/list" component={ListMenuItems}/>
               <VendorAdminProtectedRoute path="/add" component={AddMenuItem}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
