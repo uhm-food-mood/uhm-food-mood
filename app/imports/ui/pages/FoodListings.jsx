@@ -26,7 +26,8 @@ export default class FoodListings extends React.Component {
                 </p>
                 </Grid.Column>
               <Grid.Column width={2}>
-                <Image src='http://manoa.hawaii.edu/food/index_files/stacks_image_2604.png'/>
+                <Link to='DonerShack'><Image src='http://manoa.hawaii.edu/food/index_files/stacks_image_2604.png'/>
+                </Link>
               </Grid.Column>
               <Grid.Column width={3}>
                 <p>
@@ -38,7 +39,8 @@ export default class FoodListings extends React.Component {
                   </p>
               </Grid.Column>
                 <Grid.Column width={2}>
-                  <Image src='http://manoa.hawaii.edu/food/index_files/stacks_image_57.png'/>
+                  <Link to='DunkinDonuts'><Image src='http://manoa.hawaii.edu/food/index_files/stacks_image_57.png'/>
+                  </Link>
                 </Grid.Column>
                 <Grid.Column width={3}>
                   <p>
@@ -53,7 +55,8 @@ export default class FoodListings extends React.Component {
               </Grid.Row>
               <Grid.Row>
                 <Grid.Column width={2}>
-                  <Image src='http://manoa.hawaii.edu/food/index_files/stacks_image_2004.png'/>
+                  <Link to='Govindas'><Image src='http://manoa.hawaii.edu/food/index_files/stacks_image_2004.png'/>
+                  </Link>
                 </Grid.Column>
                 <Grid.Column width={3}>
                   <p>

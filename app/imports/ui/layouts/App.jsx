@@ -18,7 +18,9 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import FoodListings from '../pages/FoodListings';
 import DaSpot from '../menus/DaSpot';
-
+import DonerShack from '../menus/DonerShack';
+import DunkinDonuts from '../menus/DunkinDonuts';
+import Govindas from '../menus/Govindas';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -33,6 +35,9 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/listings" component={FoodListings}/>
               <Route path="/DaSpot" component={DaSpot}/>
+              <Route path="/DonerShack" component={DonerShack}/>
+              <Route path="/DunkinDonuts" component={DunkinDonuts}/>
+              <Route path="/Govindas" component={Govindas}/>
               <ProtectedRoute path="/list" component={ListMenuItems}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>

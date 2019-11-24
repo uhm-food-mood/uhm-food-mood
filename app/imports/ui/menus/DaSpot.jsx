@@ -13,8 +13,8 @@ export default class DaSpot extends React.Component {
             <h1 className='foodlisting-landing'>10:00am - 2:00pm</h1>
             <h2 className='foodlistingsbg'>
               <Grid centered>
-                <Image src='https://manoa.hawaii.edu/food/daSpot_files/stacks_image_1850.png' size='medium'/>
-                <Image src='https://manoa.hawaii.edu/food/daSpot_files/stacks_image_1853.png' size='medium'/>
+                <Image src='https://manoa.hawaii.edu/food/daSpot_files/stacks_image_1850.png' size='large'/>
+                <Image src='https://manoa.hawaii.edu/food/daSpot_files/stacks_image_1853.png' size='large'/>
                 <p>
                   Sustainability Courtyard & Saunders Hall (2 locations)
                 </p>
@@ -30,67 +30,316 @@ export default class DaSpot extends React.Component {
               </Grid>
               <Grid centered>
                 <Image src='http://manoa.hawaii.edu/food/daSpot_files/stacks_image_3.png'/>
-              <Grid.Row>
-              <Grid.Column width={2}>
-                <p>
-                  Monday
-                </p>
-              </Grid.Column>
-                <Grid.Column width={10}>
-                    <p>
-                      Eggplant Parmesan, Foul Modamis (fava bean dish), Moussakka
-                    </p>
-                </Grid.Column>
-              </Grid.Row>
                 <Grid.Row>
                   <Grid.Column width={2}>
-                    <p>
-                      Tuesday
-                    </p>
+                    Monday
                   </Grid.Column>
                   <Grid.Column width={10}>
-                    <p>
-                      Eggplant Parmesan, Foul Modamis (fava bean dish), Moussakka
-                    </p>
+                    Eggplant Parmesan, Foul Modamis (fava bean dish), Moussakka
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column width={2}>
-                    <p>
-                      Wednesday
-                    </p>
+                    Tuesday
                   </Grid.Column>
                   <Grid.Column width={10}>
-                    <p>
-                      Eggplant Parmesan, Foul Modamis (fava bean dish), Moussakka
-                    </p>
+                    Thai Red Vegetable Curry, Vege Lasagna, Egyptian Vege Curry
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column width={2}>
-                    <p>
-                      Thursday
-                    </p>
+                    Wednesday
                   </Grid.Column>
                   <Grid.Column width={10}>
-                    <p>
-                      Eggplant Parmesan, Foul Modamis (fava bean dish), Moussakka
-                    </p>
+                    Vege Parmesan, Vege Chili, Thai Green Vegetable Curry
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column width={2}>
-                    <p>
-                      Friday
-                    </p>
+                    Thursday
                   </Grid.Column>
                   <Grid.Column width={10}>
-                    <p>
-                      Eggplant Parmesan, Foul Modamis (fava bean dish), Moussakka
-                    </p>
+                    Roasted Vegetable Medley, Coconut Garmasala Vege Curry, Thai Panang Vege Curry
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={2}>
+                    Friday
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Malaysian Vege Curry, Grilled Lemon Herb Zucchini, Eggplant Vege Parmesan
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
+              <Grid centered>
+                <Image src='http://manoa.hawaii.edu/food/daSpot_files/stacks_image_5.png'/>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Small(16oz)
+                  </Grid.Column>
+                  <Grid.Column width={3}>
+                    Medium(20oz)
+                  </Grid.Column>
+                  <Grid.Column width={3}>
+                    Large(32oz)
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Sweet Dream
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Strawberries, Haupia, Sorbet, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    DaKine
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Strawberries, Bananas, Lilikoi Sorbet, Passion Orange Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    StarBerry
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Strawberries, Lychee Sorbet, Guava Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    StrawberryPotion
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Strawberries, Bananas, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    VeryBerryGood
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Strawberries, Mixberries, Bananas, Grape Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    HomeGrown
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Strawberries, Mixberries, Guava Sorbet, Guava Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Grenade
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Strawberries, Pomegranate Sorbet, Grape Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    SouthBerry
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Strawberries, Mixberries, Acai & Haupia Sorbet, Guava Juice, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    AlohaBerry
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Mixberries, Bananas, Haupia Sorbet, Guava Juice, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Kalakauan
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Mixberries, Bananas, Pomegranate Sorbet, Apple Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    CocoOno
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Bananas, Haupia Sorbet, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    LocoStyle
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Bananas, Acai Sorbet, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    MangoTango
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Mangoes, Bananas, Lilikoi Sorbet, Passion Orange & Lemon Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Mangolicious
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Mangoes, Lychee Sorbet, Passion Orange Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    DaMango
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Mangoes, Haupia Sorbet, Orange Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Pinaco
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Pineapples, Haupia Sorbet, Passion Orange Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    PineParadise
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Pineapples, Strawberries, Bananas, Apple Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    OrangeSunset
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Peaches, Lychee Sorbet, Passion Orange Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    LiquidSunshine
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Peaches, Pears, Acai Sorbet, Apple Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    SunnySunrise
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Pears, Pineapples, Lilikoi Sorbet, Orange Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    LocoCoco
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Pears, Haupia Sorbet, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    DaKeez
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Kiwis, Strawberries, Bananas, Apple Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    WaikiKiwi
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Kiwi, Mango, Guava Sorbet, Guava Juice
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    MochaJava
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Mocha, Haupia Sorbet, Brewed Coffee, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Chocolatta
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Chocolate, Bananas, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    PeanutButta
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Peanut Butter, Haupia Sorbet, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Queens
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Peanut Butter, Bananas, Acai Sorbet, Soymilk
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+              <Grid centered>
+                <Image src='http://manoa.hawaii.edu/food/daSpot_files/stacks_image_5.png'/>
+              </Grid>
+              <Grid centered>
+                Create your own mix from these ingredients:
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Small(16oz)
+                  </Grid.Column>
+                  <Grid.Column width={3}>
+                    Medium(20oz)
+                  </Grid.Column>
+                  <Grid.Column width={3}>
+                    Large(32oz)
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Fruits:
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Strawberries, Mixberries, Bananas, Mangoes, Pineapples, Peaches, Pears or Kiwis </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Sorbets:
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Haupia, Lilikoi, Lychee, Pomegranate, Acai or Guava </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    Juices:
+                  </Grid.Column>
+                  <Grid.Column width={10}>
+                    Passion Orange, Guava, Orange, Apple, Grape or Soymilk </Grid.Column>
+                </Grid.Row>
+              </Grid>
+
             </h2>
           </Container>
         </div>
