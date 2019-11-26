@@ -29,6 +29,13 @@ Meteor.publish('MenuItems', function publish() {
   return this.ready();
 });
 
+Meteor.publish('UserFavorites', function publish() {
+  if (this.userId) {
+    return MenuItems.find({ owner: username });
+  }
+  return this.ready();
+});
+
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
 Meteor.publish('MenuItemsAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
@@ -38,7 +45,7 @@ Meteor.publish('MenuItemsAdmin', function publish() {
 });
 
 Meteor.publish('AllMenuItems', function publish() {
-    return MenuItems.find();
+  return MenuItems.find();
 });
 
 Meteor.publish('Reviews', function publish() {
