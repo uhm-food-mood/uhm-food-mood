@@ -5,6 +5,8 @@ import { Reviews } from '../../api/review/Reviews';
 
 /* eslint-disable no-console */
 
+const defaultMenu = JSON.parse(Assets.getText('menuitems.json'));
+
 /** Initialize the database with a default data document. */
 function addData(data) {
   console.log(`  Adding: ${data.name} (${data.owner})`);
@@ -26,9 +28,9 @@ function addMenu(data) {
 
 /** Initialize the collection if empty. */
 if (MenuItems.find().count() === 0) {
-  if (Meteor.settings.defaultMenu) {
+  if (defaultMenu) {
     console.log('Creating default data.');
-    Meteor.settings.defaultMenu.map(data => addMenu(data));
+    defaultMenu.map(data => addMenu(data));
   }
 }
 
