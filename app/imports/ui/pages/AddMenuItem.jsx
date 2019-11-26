@@ -18,23 +18,39 @@ const formSchema = new SimpleSchema({
   vendor: { label: 'Vendor', type: String },
   price: { label: 'Price', type: String },
   availability: { label: 'Start Date', type: Date },
+  vegan: {
+    label: 'Vegan',
+    type: String,
+    allowedValues: ['Yes', 'No'],
+    defaultValue: 'Yes',
+  },
+  ethnicity: {
+    label: 'Ethnicity',
+    type: String,
+    allowedValues: ['Chinese', 'Japanese', 'French'],
+    defaultValue: 'Chinese',
+  },
   starting: {
     label: 'Start availability time',
     type: String,
     allowedValues: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+    defaultValue: '1',
   },
   startingPeriod: {
     type: String,
     allowedValues: ['AM', 'PM'],
+    defaultValue: 'AM',
   },
   ending: {
     label: 'End availability time',
     type: String,
     allowedValues: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+    defaultValue: '2',
   },
   endingPeriod: {
     type: String,
     allowedValues: ['AM', 'PM'],
+    defaultValue: 'AM',
   },
 });
 
@@ -43,7 +59,9 @@ class AddMenuItem extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, image, vendor, price, availability, starting, startingPeriod, ending, endingPeriod } = data;
+    const {
+      name, image, vendor, price, availability, starting, startingPeriod, ending, endingPeriod,
+      vegan, ethnicity } = data;
     const owner = Meteor.user().username;
     MenuItems.insert({
           name,
@@ -55,7 +73,10 @@ class AddMenuItem extends React.Component {
           startingPeriod,
           ending,
           endingPeriod,
-          owner },
+          vegan,
+          ethnicity,
+          owner,
+        },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -82,6 +103,8 @@ class AddMenuItem extends React.Component {
                   <TextField className='josefin' name='image'/>
                   <TextField className='josefin' name='vendor'/>
                   <TextField className='josefin' name='price'/>
+                  <SelectField className='josefin' name='vegan'/>
+                  <SelectField className='josefin' name='ethnicity'/>
                   <TextField className='josefin' name='availability'/>
                   <SelectField className='josefin' name='starting'/>
                   <SelectField className='josefin' name='startingPeriod'/>
