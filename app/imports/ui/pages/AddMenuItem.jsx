@@ -22,29 +22,35 @@ const formSchema = new SimpleSchema({
     label: 'Vegan',
     type: String,
     allowedValues: ['Yes', 'No'],
+    defaultValue: 'Yes',
   },
   ethnicity: {
     label: 'Ethnicity',
     type: String,
     allowedValues: ['Chinese', 'Japanese', 'French'],
+    defaultValue: 'Chinese',
   },
   starting: {
     label: 'Start availability time',
     type: String,
     allowedValues: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+    defaultValue: '1',
   },
   startingPeriod: {
     type: String,
     allowedValues: ['AM', 'PM'],
+    defaultValue: 'AM',
   },
   ending: {
     label: 'End availability time',
     type: String,
     allowedValues: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+    defaultValue: '2',
   },
   endingPeriod: {
     type: String,
     allowedValues: ['AM', 'PM'],
+    defaultValue: 'AM',
   },
 });
 
