@@ -19,6 +19,7 @@ const MenuItemsSchema = new SimpleSchema({
   endingPeriod: String,
   vegan: String,
   ethnicity: String,
+  master: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

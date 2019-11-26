@@ -63,6 +63,7 @@ class AddMenuItem extends React.Component {
       name, image, vendor, price, availability, starting, startingPeriod, ending, endingPeriod,
       vegan, ethnicity } = data;
     const owner = Meteor.user().username;
+    const master = 'yes';
     MenuItems.insert({
           name,
           image,
@@ -76,6 +77,7 @@ class AddMenuItem extends React.Component {
           vegan,
           ethnicity,
           owner,
+          master,
         },
         (error) => {
           if (error) {

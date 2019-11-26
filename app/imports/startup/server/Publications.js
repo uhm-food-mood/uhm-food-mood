@@ -46,7 +46,7 @@ Meteor.publish('MenuItemsAdmin', function publish() {
 });
 
 Meteor.publish('AllMenuItems', function publish() {
-  return MenuItems.find();
+  return MenuItems.find({ master: 'yes' });
 });
 
 Meteor.publish('Reviews', function publish() {
