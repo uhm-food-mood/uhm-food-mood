@@ -31,6 +31,7 @@ Meteor.publish('MenuItems', function publish() {
 
 Meteor.publish('UserFavorites', function publish() {
   if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
     return MenuItems.find({ owner: username });
   }
   return this.ready();
