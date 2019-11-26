@@ -11,7 +11,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Moussakka",
@@ -25,7 +26,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Thai Green Vegetable Curry",
@@ -39,7 +41,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Thai Red Vegetable Curry",
@@ -53,7 +56,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Lamb/Beef/Chicken Wrap",
@@ -67,7 +71,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Lamb/Beef/Chicken Plate",
@@ -81,7 +86,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Lamb/Beef/Chicken Salad",
@@ -95,7 +101,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Garlic Yogurt Sauce",
@@ -109,7 +116,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Coffee (Hot/Cold/Blended)",
@@ -123,7 +131,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Donuts",
@@ -137,7 +146,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Lunch Sandwiches",
@@ -151,7 +161,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Breakfast",
@@ -165,7 +176,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Khichri",
@@ -179,7 +191,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Strawberry Halava",
@@ -193,7 +206,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Peanut Butter Halava",
@@ -207,7 +221,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Pineapple Coconut Halava",
@@ -221,7 +236,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Tuna Melt Panini",
@@ -235,7 +251,8 @@
     "ending": 3,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Grilled Cheese Panini",
@@ -249,7 +266,8 @@
     "ending": 3,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Chicken Chipotle Panini",
@@ -263,7 +281,8 @@
     "ending": 3,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Turkey Avocado Panini",
@@ -277,7 +296,8 @@
     "ending": 3,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Corn Tacos",
@@ -291,7 +311,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Burritos",
@@ -305,7 +326,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Quesadillas",
@@ -319,7 +341,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Tamales",
@@ -333,7 +356,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Shave Ice",
@@ -347,7 +371,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Sorbet Bowls",
@@ -361,7 +386,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Poke Nachos",
@@ -375,7 +401,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Acai Bowls",
@@ -389,7 +416,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Beefy Miso Ramen",
@@ -403,7 +431,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Beefy Spicy Ramen",
@@ -417,7 +446,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Beefy Wild Ramen",
@@ -431,7 +461,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Pork Gyoza",
@@ -445,7 +476,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Chicken Katsu",
@@ -459,7 +491,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Loco Moco",
@@ -473,7 +506,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "BBQ Chicken",
@@ -487,7 +521,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Grilled Garlic Ahi",
@@ -501,7 +536,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Egg Masala",
@@ -515,7 +551,8 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Vegetable Masala",
@@ -529,7 +566,8 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Tofu Sambal",
@@ -543,7 +581,8 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Vegetable Sambal",
@@ -557,7 +596,8 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Cheese Louise",
@@ -571,7 +611,8 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Pesto- Pesto",
@@ -585,7 +626,8 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Nutella",
@@ -599,7 +641,8 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Shoyu Ahi Poke Bowl",
@@ -613,7 +656,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Shoyu Tako Poke Bowl",
@@ -627,7 +671,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Miso Ahi Poke Bowl",
@@ -641,7 +686,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Miso Tako Poke Bowl",
@@ -655,7 +701,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Orange Chicken",
@@ -669,7 +716,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Beef Broccoli",
@@ -683,7 +731,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Mushroom Chicken",
@@ -697,7 +746,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Honey Walnut Shrimp",
@@ -711,7 +761,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Black/Green Iced Tea",
@@ -725,7 +776,8 @@
     "ending": 1,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Hot Cocoa",
@@ -739,7 +791,8 @@
     "ending": 1,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Cold Cereal w/Fruit",
@@ -753,7 +806,8 @@
     "ending": 1,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Ice Cream Sundae",
@@ -767,7 +821,8 @@
     "ending": 1,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Fish Jun Plate",
@@ -781,7 +836,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Kalbi Bibimbap",
@@ -795,7 +851,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Steak Plate",
@@ -809,7 +866,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Homemade Kimchi",
@@ -823,7 +881,8 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Cappuccino",
@@ -837,7 +896,8 @@
     "ending": 6,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Macchiato",
@@ -851,7 +911,8 @@
     "ending": 6,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Latte",
@@ -865,7 +926,8 @@
     "ending": 6,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Mocha",
@@ -879,7 +941,8 @@
     "ending": 6,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Pho",
@@ -893,7 +956,8 @@
     "ending": 8,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Pad Thai",
@@ -907,7 +971,8 @@
     "ending": 8,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Banh Mi Sandwiches",
@@ -921,7 +986,8 @@
     "ending": 8,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Spring Rolls",
@@ -935,7 +1001,8 @@
     "ending": 8,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Smoothies",
@@ -949,7 +1016,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Oatmeal Bowl",
@@ -963,7 +1031,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Apple Cinnamon Pretzel",
@@ -977,7 +1046,8 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   },
   {
     "name": "Banana Toast",
@@ -991,6 +1061,7 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American"
+    "ethnicity": "American",
+    "master": "yes"
   }
 ]
