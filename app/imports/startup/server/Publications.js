@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { MenuItems } from '../../api/menu/MenuItems';
+import { Reviews } from '../../api/review/Reviews';
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Stuff', function publish() {
@@ -38,4 +39,8 @@ Meteor.publish('MenuItemsAdmin', function publish() {
 
 Meteor.publish('AllMenuItems', function publish() {
     return MenuItems.find();
+});
+
+Meteor.publish('Reviews', function publish() {
+  return Reviews.find();
 });

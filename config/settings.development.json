@@ -24,5 +24,13 @@
     { "name": "Enchiladas", "image": "https://www.browneyedbaker.com/wp-content/uploads/2014/09/beef-enchiladas-26-1200.jpg", "vendor": "Sodexo", "owner": "john@foo.com", "price": "5.50", "availability": "2019-11-18","starting": 10, "startingPeriod": "AM", "ending": 2, "endingPeriod": "PM", "vegan": "no", "ethnicity": "Mexican" },
     { "name": "Sushi", "image": "https://www.pamperedchef.ca/iceberg/com/recipe/1565476-lg.jpg", "vendor": "Sodexo", "owner": "john@foo.com", "price": "10.50", "availability": "2019-11-17","starting": 10, "startingPeriod": "AM", "ending": 2, "endingPeriod": "PM", "vegan": "no", "ethnicity": "Japanese" },
     { "name": "Chicken Sandwich", "image": "https://easychickenrecipes.com/wp-content/uploads/2019/06/fried-chicken-sandwich-4-of-7.jpg", "vendor": "Sodexo", "owner": "vendor@foo.com", "price": "3.57", "availability": "2019-11-17","starting": 10, "startingPeriod": "AM", "ending": 2, "endingPeriod": "PM", "vegan": "no", "ethnicity": "American" }
+  ],
+
+  "defaultReviews": [
+    { "owner": "john@foo.com",
+      "description": "Nachos could use some salt",
+      "rating":  3,
+      "name": "Nachos"
+    }
   ]
 }
