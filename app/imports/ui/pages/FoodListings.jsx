@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Grid, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 export default class FoodListings extends React.Component {
@@ -14,8 +13,7 @@ export default class FoodListings extends React.Component {
             <Grid>
               <Grid.Row>
                 <Grid.Column width={2}>
-                  <Link to='DaSpot'><Image src='http://manoa.hawaii.edu/food/index_files/stacks_image_22.png'/>
-                  </Link>
+                  <Image src='http://manoa.hawaii.edu/food/index_files/stacks_image_22.png'/>
                 </Grid.Column>
                 <Grid.Column width={3}>
                   <p>

@@ -17,7 +17,6 @@ const formSchema = new SimpleSchema({
   image: { label: 'URL to image', type: String },
   vendor: { label: 'Vendor', type: String },
   price: { label: 'Price', type: String },
-  availability: { label: 'Start Date', type: Date },
   vegan: {
     label: 'Vegan',
     type: String,
@@ -30,6 +29,7 @@ const formSchema = new SimpleSchema({
     allowedValues: ['Chinese', 'Japanese', 'French'],
     defaultValue: 'Chinese',
   },
+  availability: { label: 'Days Open', type: String },
   starting: {
     label: 'Start availability time',
     type: String,
