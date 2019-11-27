@@ -70,7 +70,13 @@
   text-align: center;
   font-family: 'Josefin Sans';
 }
-
+.right {
+  text-align: right !important;
+}
 .search {
   text-align: right !important;
+}
+
+.sign {
+  margin-top: 20px;
 }

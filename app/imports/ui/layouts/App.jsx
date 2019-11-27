@@ -12,7 +12,6 @@ import ListAllMenuItems from '../pages/ListAllMenuItems';
 import ListMenuItemsAdmin from '../pages/ListMenuItemsAdmin';
 import ListMenuItemsVendor from '../pages/ListMenuItemsVendor';
 import AddMenuItem from '../pages/AddMenuItem';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -39,7 +38,6 @@ class App extends React.Component {
               <ProtectedRoute path="/list" component={ListMenuItems}/>
               <ProtectedRoute path="/review" component={ReviewMenuItem}/>
               <VendorAdminProtectedRoute path="/add" component={AddMenuItem}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListMenuItemsAdmin}/>
               <VendorProtectedRoute path="/vendor" component={ListMenuItemsVendor}/>
               <ProtectedRoute path="/signout" component={Signout}/>
