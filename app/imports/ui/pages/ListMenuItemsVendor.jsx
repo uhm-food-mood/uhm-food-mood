@@ -1,11 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Header, Loader } from 'semantic-ui-react';
-import MenuItemVendor from '/imports/ui/components/MenuItemVendor';
+import { Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MenuItems } from '../../api/menu/MenuItems';
+import SearchFormVendor from '../components/SearchFormVendor';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListMenuItemsVendor extends React.Component {
@@ -21,9 +21,7 @@ class ListMenuItemsVendor extends React.Component {
         <div className="foodmoodbg">
         <Container>
           <Header inverted as="h2" textAlign="center" className="Montserrat">Menu Item Listings</Header>
-          <Card.Group itemsPerRow={3}>
-            {this.props.menuitems.map((menuitems, index) => <MenuItemVendor key={index} menuitems={menuitems} />)}
-          </Card.Group>
+          <SearchFormVendor />
           <br/>
           <Link to={'/add/'} className="add">Add Another +</Link>
         </Container>

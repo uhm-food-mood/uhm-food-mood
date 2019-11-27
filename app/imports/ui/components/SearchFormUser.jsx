@@ -6,7 +6,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { MenuItems } from '../../api/menu/MenuItems';
 
-class SearchForm extends React.Component {
+class SearchFormUser extends React.Component {
 
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -73,7 +73,7 @@ class SearchForm extends React.Component {
   }
 }
 
-SearchForm.propTypes = {
+SearchFormUser.propTypes = {
   menuitems: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -81,9 +81,9 @@ SearchForm.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('AllMenuItems');
+  const subscription = Meteor.subscribe('MenuItems');
   return {
     menuitems: MenuItems.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(SearchForm);
+})(SearchFormUser);
