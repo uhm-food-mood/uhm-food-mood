@@ -11,7 +11,7 @@
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
-  
+
   "defaultReviews": [
     { "owner": "john@foo.com",
       "description": "Nachos could use some salt",
