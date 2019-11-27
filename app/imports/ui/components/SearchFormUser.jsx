@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Form, Card, Loader } from 'semantic-ui-react';
-import MenuItem from '/imports/ui/components/MenuItem';
+import FavoriteItem from '/imports/ui/components/FavoriteItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { MenuItems } from '../../api/menu/MenuItems';
+import { Favorites } from '../../api/favorite/Favorites';
 
 class SearchFormUser extends React.Component {
 
@@ -18,19 +18,6 @@ class SearchFormUser extends React.Component {
       query: '',
     };
   }
-
-  handleFormSubmit = () => {
-    const searchValue = this.state.query;
-
-    if (searchValue) {
-      Meteor.subscribe('AllMenuItems');
-      console.log('search:', this.state.query);
-      return {
-        menuitems: MenuItems.find({ name: searchValue }).fetch(),
-      };
-      }
-    return null;
-    }
 
   handleInputChange = (e) => {
     this.setState({
@@ -60,13 +47,13 @@ class SearchFormUser extends React.Component {
   renderPage() {
     return (
         <div>
-        <Form onSubmit={this.handleFormSubmit}>
+        <Form>
           <Form.Input placeholder='Search...' value={this.state.query} onChange={this.handleInputChange} width={4}/>
           <br/>
         </Form>
           <Card.Group itemsPerRow={3}>
-            {this.props.menuitems.filter(this.searchItems).map((menuitems, index) => <MenuItem key={index}
-                          menuitems={menuitems} />)}
+            {this.props.menuitems.filter(this.searchItems).map((FavoriteItems, index) => <FavoriteItem key={index}
+                          FavoriteItems={FavoriteItems} />)}
           </Card.Group>
         </div>
     );
@@ -81,9 +68,9 @@ SearchFormUser.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('MenuItems');
+  const subscription = Meteor.subscribe('Favorites');
   return {
-    menuitems: MenuItems.find({}).fetch(),
+    menuitems: Favorites.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(SearchFormUser);

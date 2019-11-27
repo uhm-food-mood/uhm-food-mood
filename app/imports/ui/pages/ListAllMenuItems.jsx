@@ -21,9 +21,7 @@ class ListAllMenuItems extends React.Component {
         <Container>
           <Header inverted as="h2" textAlign="center" className="Montserrat">All Food Options</Header>
           <Divider/>
-          <div className="right">
           <SearchForm />
-          </div>
         </Container>
         </div>
     );
@@ -41,7 +39,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('AllMenuItems');
   return {
-    menuitems: MenuItems.find({}).fetch(),
+    menuitems: MenuItems.find({ master: 'yes' }).fetch(),
     ready: subscription.ready(),
   };
 })(ListAllMenuItems);

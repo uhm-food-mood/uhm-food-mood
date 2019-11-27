@@ -4,7 +4,7 @@ import { Container, Header, Loader, Divider } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { MenuItems } from '../../api/menu/MenuItems';
+import { Favorites } from '../../api/favorite/Favorites';
 import SearchFormUser from '../components/SearchFormUser';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -40,9 +40,9 @@ ListMenuItems.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('MenuItems');
+  const subscription = Meteor.subscribe('Favorites');
   return {
-    menuitems: MenuItems.find({}).fetch(),
+    menuitems: Favorites.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(ListMenuItems);
