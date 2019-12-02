@@ -96,7 +96,6 @@ class MenuItem extends React.Component {
                 Available now!
               </Card.Description>
           ) : ''}
-            <Button icon>
             <Button icon onClick={() => this.favorite()}>
               <Icon name='heart' />
             </Button>
