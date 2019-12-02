@@ -11,17 +11,17 @@ function available(starting, startingPeriod, ending, endingPeriod) {
   if (startingPeriod === 'PM') {
     start = moment().hour(parseInt(starting) + 12);
   }
-  console.log(start);
+  //console.log(start);
   let end = moment().hour(parseInt(ending));
   if (endingPeriod === 'PM') {
     end = moment().hour(parseInt(ending) + 12);
   }
-  console.log(end);
-  const now = moment().hour();
-  console.log(now);
-  if (now.getHours > start.getHours && now.getHours < end.getHours) {
+  //console.log(end);
+  if (moment().isBefore(end) && moment().isAfter(start)) {
+    //console.log(true);
     return true;
   }
+  //console.log(false);
   return false;
 }
 
@@ -44,7 +44,7 @@ class MenuItem extends React.Component {
                 this.props.menuitems.startingPeriod,
                 this.props.menuitems.ending,
                 this.props.menuitems.endingPeriod) ? (
-            <Card.Description>
+            <Card.Description className="green">
               Available now!
             </Card.Description>
             ) : ''}
