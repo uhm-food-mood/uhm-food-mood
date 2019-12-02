@@ -17,9 +17,7 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import FoodListings from '../pages/FoodListings';
-import DaSpot from '../menus/DaSpot';
 import ReviewMenuItem from '../pages/ReviewMenuItem';
-
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -33,7 +31,6 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/listings" component={FoodListings}/>
-              <Route path="/DaSpot" component={DaSpot}/>
               <Route path="/allListings" component={ListAllMenuItems}/>
               <ProtectedRoute path="/list" component={ListMenuItems}/>
               <ProtectedRoute path="/review" component={ReviewMenuItem}/>
