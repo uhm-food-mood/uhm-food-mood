@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Image, Label } from 'semantic-ui-react';
+import { Card, Image, Label, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import moment from 'moment';
+import { MenuItems } from '../../api/menu/MenuItems';
 
 function available(starting, startingPeriod, ending, endingPeriod) {
   // eslint-disable-next-line radix
@@ -30,6 +31,11 @@ function available(starting, startingPeriod, ending, endingPeriod) {
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class MenuItemVendor extends React.Component {
 
+  removeItem(docID) {
+    MenuItems.remove(docID);
+    // console.log(docID);
+  }
+
   render() {
     return (
         <Card>
@@ -39,7 +45,7 @@ class MenuItemVendor extends React.Component {
                 fluid
             />
             <Card.Header>{this.props.menuitems.name}</Card.Header>
-            <Card.Meta>{this.props.menuitems.vendor} - ${this.props.menuitems.price}</Card.Meta>
+            <Card.Meta>${this.props.menuitems.price}</Card.Meta>
             <Card.Description>{this.props.menuitems.availability}</Card.Description>
             <Card.Description>{this.props.menuitems.starting}:00 {this.props.menuitems.startingPeriod} -
               {this.props.menuitems.ending}:00 {this.props.menuitems.endingPeriod}
@@ -59,6 +65,11 @@ class MenuItemVendor extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <Link to={`/edit/${this.props.menuitems._id}`}>Edit</Link>
+          </Card.Content>
+          <Card.Content extra>
+            <Button icon onClick={() => this.removeItem(this.props.menuitems._id)}>
+              Remove
+            </Button>
           </Card.Content>
         </Card>
     );
