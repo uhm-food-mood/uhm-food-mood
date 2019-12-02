@@ -20,8 +20,8 @@ const formSchema = new SimpleSchema({
   vegan: {
     label: 'Vegan',
     type: String,
-    allowedValues: ['Yes', 'No'],
-    defaultValue: 'Yes',
+    allowedValues: ['yes', 'no'],
+    defaultValue: 'yes',
   },
   ethnicity: {
     label: 'Ethnicity',
