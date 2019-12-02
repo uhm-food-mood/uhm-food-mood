@@ -24,7 +24,7 @@ class SearchForm extends React.Component {
 
     if (searchValue) {
       Meteor.subscribe('AllMenuItems');
-      console.log('search:', this.state.query);
+      // console.log('search:', this.state.query);
       return {
         menuitems: MenuItems.find({ name: searchValue }).fetch(),
       };
@@ -39,16 +39,34 @@ class SearchForm extends React.Component {
   }
 
   searchItems = (item) => {
-    if (this.state.query.toLowerCase().includes(item.name.toLowerCase())) {
+    if (item.name.toLowerCase().includes(this.state.query.toLowerCase())) {
       return true;
     }
-    if (this.state.query.toLowerCase().includes(item.vendor.toLowerCase())) {
+    if (item.vendor.toLowerCase().includes(this.state.query.toLowerCase())) {
       return true;
     }
-    if (this.state.query.toLowerCase().includes(item.ethnicity.toLowerCase())) {
+    if (item.ethnicity.toLowerCase().includes(this.state.query.toLowerCase())) {
       return true;
     }
     if (this.state.query.toLowerCase() === 'vegan' && item.vegan === 'yes') {
+      return true;
+    }
+    const nameVendor = `${item.name} ${item.vendor}`;
+    const vendorName = `${item.vendor} ${item.name}`;
+    if (nameVendor.toLowerCase().includes(this.state.query.toLowerCase())
+        || vendorName.toLowerCase().includes(this.state.query.toLowerCase())) {
+      return true;
+    }
+    const nameEthnic = `${item.name} ${item.ethnicity}`;
+    const EthnicName = `${item.ethnicity} ${item.name}`;
+    if (nameEthnic.toLowerCase().includes(this.state.query.toLowerCase())
+        || EthnicName.toLowerCase().includes(this.state.query.toLowerCase())) {
+      return true;
+    }
+    const vendorEthnic = `${item.vendor} ${item.ethnicity}`;
+    const ethnicVendor = `${item.ethnicity} ${item.vendor}`;
+    if (vendorEthnic.toLowerCase().includes(this.state.query.toLowerCase())
+        || ethnicVendor.toLowerCase().includes(this.state.query.toLowerCase())) {
       return true;
     }
     if (this.state.query === '') {
