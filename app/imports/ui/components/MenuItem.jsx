@@ -7,21 +7,25 @@ import moment from 'moment';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 
 function available(starting, startingPeriod, ending, endingPeriod) {
+  // eslint-disable-next-line radix
   let start = moment().hour(parseInt(starting));
   if (startingPeriod === 'PM') {
+    // eslint-disable-next-line radix
     start = moment().hour(parseInt(starting) + 12);
   }
-  //console.log(start);
+  // console.log(start);
+  // eslint-disable-next-line radix
   let end = moment().hour(parseInt(ending));
   if (endingPeriod === 'PM') {
+    // eslint-disable-next-line radix
     end = moment().hour(parseInt(ending) + 12);
   }
-  //console.log(end);
+  // console.log(end);
   if (moment().isBefore(end) && moment().isAfter(start)) {
-    //console.log(true);
+    // console.log(true);
     return true;
   }
-  //console.log(false);
+  // console.log(false);
   return false;
 }
 
@@ -40,14 +44,14 @@ class MenuItem extends React.Component {
             <Card.Description>{this.props.menuitems.starting}:00 {this.props.menuitems.startingPeriod} -
               {this.props.menuitems.ending}:00 {this.props.menuitems.endingPeriod}
             </Card.Description>
-            {available(this.props.menuitems.starting,
-                this.props.menuitems.startingPeriod,
-                this.props.menuitems.ending,
-                this.props.menuitems.endingPeriod) ? (
-            <Card.Description className="green">
-              Available now!
-            </Card.Description>
-            ) : ''}
+          {available(this.props.menuitems.starting,
+              this.props.menuitems.startingPeriod,
+              this.props.menuitems.ending,
+              this.props.menuitems.endingPeriod) ? (
+              <Card.Description className="green">
+                Available now!
+              </Card.Description>
+          ) : ''}
             <Button icon>
               <Icon name='heart' />
             </Button>
