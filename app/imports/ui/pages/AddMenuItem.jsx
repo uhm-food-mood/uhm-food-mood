@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SelectField from 'uniforms-semantic/SelectField';
@@ -101,17 +101,23 @@ class AddMenuItem extends React.Component {
                 fRef = ref;
               }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
                 <Segment>
+                  <Form.Group widths='equal'>
                   <TextField className='josefin' name='name'/>
                   <TextField className='josefin' name='image'/>
                   <TextField className='josefin' name='vendor'/>
+                  </Form.Group>
+                  <Form.Group widths='equal'>
                   <TextField className='josefin' name='price'/>
                   <SelectField className='josefin' name='vegan'/>
                   <SelectField className='josefin' name='ethnicity'/>
+                  </Form.Group>
+                  <Form.Group widths='equal'>
                   <TextField className='josefin' name='availability'/>
                   <SelectField className='josefin' name='starting'/>
                   <SelectField className='josefin' name='startingPeriod'/>
                   <SelectField className='josefin' name='ending'/>
                   <SelectField className='josefin' name='endingPeriod'/>
+                  </Form.Group>
                   <SubmitField className='josefin' value='Submit'/>
                   <ErrorsField/>
                 </Segment>
