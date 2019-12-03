@@ -4,14 +4,14 @@
     "image": "https://realhousemoms.com/wp-content/uploads/Eggplant-Parmesan-IG1.jpg",
     "vendor": "Da Spot",
     "owner": "vendor@foo.com",
-    "price": "3.57",
+    "price": "10.00",
     "availability": "Monday- Friday",
     "starting": 10,
     "startingPeriod": "AM",
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Mediterranean",
     "master": "yes"
   },
   {
@@ -26,7 +26,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Mediterranean",
     "master": "yes"
   },
   {
@@ -41,7 +41,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Thai",
     "master": "yes"
   },
   {
@@ -56,7 +56,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Thai",
     "master": "yes"
   },
   {
@@ -71,7 +71,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Middle Eastern",
     "master": "yes"
   },
   {
@@ -86,7 +86,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Middle Eastern",
     "master": "yes"
   },
   {
@@ -101,7 +101,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Middle Eastern",
     "master": "yes"
   },
   {
@@ -116,7 +116,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Middle Eastern",
     "master": "yes"
   },
   {
@@ -190,8 +190,8 @@
     "startingPeriod": "AM",
     "ending": 2,
     "endingPeriod": "PM",
-    "vegan": "no",
-    "ethnicity": "American",
+    "vegan": "yes",
+    "ethnicity": "Indian",
     "master": "yes"
   },
   {
@@ -205,8 +205,8 @@
     "startingPeriod": "AM",
     "ending": 2,
     "endingPeriod": "PM",
-    "vegan": "no",
-    "ethnicity": "American",
+    "vegan": "yes",
+    "ethnicity": "Indian",
     "master": "yes"
   },
   {
@@ -220,8 +220,8 @@
     "startingPeriod": "AM",
     "ending": 2,
     "endingPeriod": "PM",
-    "vegan": "no",
-    "ethnicity": "American",
+    "vegan": "yes",
+    "ethnicity": "Indian",
     "master": "yes"
   },
   {
@@ -235,8 +235,8 @@
     "startingPeriod": "AM",
     "ending": 2,
     "endingPeriod": "PM",
-    "vegan": "no",
-    "ethnicity": "American",
+    "vegan": "yes",
+    "ethnicity": "Indian",
     "master": "yes"
   },
   {
@@ -311,7 +311,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Mexican",
     "master": "yes"
   },
   {
@@ -326,7 +326,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Mexican",
     "master": "yes"
   },
   {
@@ -341,7 +341,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Mexican",
     "master": "yes"
   },
   {
@@ -356,7 +356,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Mexican",
     "master": "yes"
   },
   {
@@ -371,7 +371,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -401,7 +401,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -416,7 +416,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Brazilian",
     "master": "yes"
   },
   {
@@ -431,7 +431,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Japanese",
     "master": "yes"
   },
   {
@@ -446,7 +446,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Japanese",
     "master": "yes"
   },
   {
@@ -461,7 +461,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Japanese",
     "master": "yes"
   },
   {
@@ -476,7 +476,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Japanese",
     "master": "yes"
   },
   {
@@ -491,7 +491,7 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -506,7 +506,7 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -521,7 +521,7 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -536,7 +536,7 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -551,7 +551,7 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Indian",
     "master": "yes"
   },
   {
@@ -565,8 +565,8 @@
     "startingPeriod": "AM",
     "ending": 4,
     "endingPeriod": "PM",
-    "vegan": "no",
-    "ethnicity": "American",
+    "vegan": "yes",
+    "ethnicity": "Indian",
     "master": "yes"
   },
   {
@@ -580,8 +580,8 @@
     "startingPeriod": "AM",
     "ending": 4,
     "endingPeriod": "PM",
-    "vegan": "no",
-    "ethnicity": "American",
+    "vegan": "yes",
+    "ethnicity": "Indian",
     "master": "yes"
   },
   {
@@ -595,8 +595,8 @@
     "startingPeriod": "AM",
     "ending": 4,
     "endingPeriod": "PM",
-    "vegan": "no",
-    "ethnicity": "American",
+    "vegan": "yes",
+    "ethnicity": "Indian",
     "master": "yes"
   },
   {
@@ -611,7 +611,7 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "French",
     "master": "yes"
   },
   {
@@ -626,7 +626,7 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "French",
     "master": "yes"
   },
   {
@@ -641,7 +641,7 @@
     "ending": 4,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "French",
     "master": "yes"
   },
   {
@@ -656,7 +656,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -671,7 +671,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -686,7 +686,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -701,7 +701,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Hawaiian",
     "master": "yes"
   },
   {
@@ -716,7 +716,7 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Chinese",
     "master": "yes"
   },
   {
@@ -731,7 +731,7 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Chinese",
     "master": "yes"
   },
   {
@@ -746,7 +746,7 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Chinese",
     "master": "yes"
   },
   {
@@ -761,7 +761,7 @@
     "ending": 5,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Chinese",
     "master": "yes"
   },
   {
@@ -836,7 +836,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Korean",
     "master": "yes"
   },
   {
@@ -851,7 +851,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Korean",
     "master": "yes"
   },
   {
@@ -866,7 +866,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Korean",
     "master": "yes"
   },
   {
@@ -881,7 +881,7 @@
     "ending": 2,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Korean",
     "master": "yes"
   },
   {
@@ -956,7 +956,7 @@
     "ending": 8,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Vietnamese",
     "master": "yes"
   },
   {
@@ -971,7 +971,7 @@
     "ending": 8,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Thai",
     "master": "yes"
   },
   {
@@ -986,7 +986,7 @@
     "ending": 8,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Vietnamese",
     "master": "yes"
   },
   {
@@ -1001,7 +1001,7 @@
     "ending": 8,
     "endingPeriod": "PM",
     "vegan": "no",
-    "ethnicity": "American",
+    "ethnicity": "Vietnamese",
     "master": "yes"
   },
   {
