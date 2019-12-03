@@ -26,7 +26,8 @@ const formSchema = new SimpleSchema({
   ethnicity: {
     label: 'Ethnicity',
     type: String,
-    allowedValues: ['Chinese', 'Japanese', 'French'],
+    allowedValues: ['Chinese', 'Japanese', 'French', 'American', 'Thai', 'Mediterranean', 'Middle Eastern',
+      'Indian', 'Mexican', 'Hawaiian', 'Brazilian', 'Korean', 'Vietnamese'],
     defaultValue: 'Chinese',
   },
   availability: { label: 'Days Open', type: String },
