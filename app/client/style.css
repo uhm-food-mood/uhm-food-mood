@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:600|Montserrat&display=swap');
 .josefin {
-  font-family: 'Josefin Sans SemiBold';
+  font-family: 'Josefin Sans';
 }
 .josefin-light {
   font-family: 'Josefin Sans';
@@ -24,19 +24,19 @@
   padding-top: 10px;
 }
  .ui.cards > .card .meta, .ui.card .meta {
-   font-family: 'Josefin Sans SemiBold';
+   font-family: 'Josefin Sans';
  }
 .ui.cards > .card > .content > .meta + .description, .ui.cards > .card > .content > .header + .description, .ui.card > .content > .meta + .description, .ui.card > .content > .header + .description {
-  font-family: 'Josefin Sans SemiBold';
+  font-family: 'Josefin Sans';
 }
 .ui.teal.labels .label, .ui.teal.label {
-  font-family: 'Josefin Sans SemiBold';
+  font-family: 'Josefin Sans';
 }
 .ui.cards > .card .meta, .ui.card .meta {
-  font-family: 'Josefin Sans SemiBold';
+  font-family: 'Josefin Sans';
 }
 .ui.cards > .card > .extra a:not(.ui), .ui.card > .extra a:not(.ui) {
-  font-family: 'Josefin Sans SemiBold';
+  font-family: 'Josefin Sans';
 }
 .add {
   color: white !important;
@@ -49,13 +49,13 @@
 .landing{
   color: white;
   text-align: center;
-  font-family: 'Josefin Sans SemiBold';
+  font-family: 'Josefin Sans';
 }
 
 .foodlisting-landing {
   color: black;
   text-align: center;
-  font-family: 'Josefin Sans SemiBold';
+  font-family: 'Josefin Sans';
 }
 
 .foodmoodbg-landing {
