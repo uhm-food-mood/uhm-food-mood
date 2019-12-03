@@ -97,10 +97,10 @@ class EditMenuItem extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <div className='foodmoodbg'>
+        <div className='yellow padding'>
           <Grid container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Edit a Menu Item!</Header>
+              <Header as="h2" textAlign="center">Edit a Menu Item!</Header>
               <AutoForm schema={formSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
                 <Segment>
                   <Form.Group widths='equal'>

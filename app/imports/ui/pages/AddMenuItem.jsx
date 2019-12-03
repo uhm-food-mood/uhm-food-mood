@@ -94,10 +94,10 @@ class AddMenuItem extends React.Component {
   render() {
     let fRef = null;
     return (
-        <div className='foodmoodbg'>
+        <div className='yellow padding'>
           <Grid container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Add a Menu Item!</Header>
+              <Header as="h2" textAlign="center">Add a Menu Item!</Header>
               <AutoForm ref={ref => {
                 fRef = ref;
               }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
