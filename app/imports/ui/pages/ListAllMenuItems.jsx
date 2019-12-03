@@ -17,12 +17,13 @@ class ListAllMenuItems extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div className="foodmoodbg">
+        <div className="yellow">
         <Container>
-          <Header inverted as="h2" textAlign="center" className="Montserrat">All Food Options</Header>
+          <Header as="h2" textAlign="center" className="Montserrat">FOOD OPTIONS</Header>
           <Divider/>
           <SearchForm />
         </Container>
+          <br/>
         </div>
     );
   }

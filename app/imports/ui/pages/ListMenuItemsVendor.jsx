@@ -18,9 +18,9 @@ class ListMenuItemsVendor extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div className="foodmoodbg">
+        <div className="yellow">
         <Container>
-          <Header inverted as="h2" textAlign="center" className="Montserrat">Menu Item Listings</Header>
+          <Header as="h2" textAlign="center" className="Montserrat">YOUR LISTINGS</Header>
           <SearchFormVendor />
           <br/>
           <Link to={'/add/'} className="add">Add Another +</Link>

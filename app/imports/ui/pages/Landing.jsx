@@ -10,7 +10,7 @@ import { MenuItems } from '../../api/menu/MenuItems';
 class Landing extends React.Component {
   render() {
     return (
-        <div>
+        <div className='padding'>
           <div className='yellow'>
           <div className='landingbg'>
             <Container>
@@ -44,6 +44,7 @@ class Landing extends React.Component {
             <Card.Group itemsPerRow={3}>
               {this.props.menuitems.map((menuitems, index) => <MenuItem key={index} menuitems={menuitems} />)}
             </Card.Group>
+              <br/>
             </Container>
           </div>
         </div>

@@ -3,15 +3,14 @@ import React from 'react';
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
   render() {
-    const divStyle = { paddingTop: '15px' };
+    const divStyle = { paddingTop: '30px' };
     return (
         <footer>
-          <div style={divStyle} className="ui center aligned container">
+          <div style={divStyle} className="ui center aligned footer">
             <hr />
-              Department of Information and Computer Sciences <br />
+              UHM Food Mood <br />
               University of Hawaii<br />
-              Honolulu, HI 96822 <br />
-            <a href="http://ics-software-engineering.github.io/meteor-application-template-react">Template Home Page</a>
+            <a href="https://uhm-food-mood.github.io/">Project Homepage</a>
           </div>
         </footer>
     );

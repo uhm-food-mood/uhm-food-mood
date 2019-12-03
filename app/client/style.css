@@ -26,6 +26,10 @@
 .yellow {
   background-color: #FEDD36;
 }
+.footer {
+  background-color: black;
+  color: white;
+}
 .landingbg {
   background-image: url('images/black-fork-and-knife-clip-art-940302.jpg');
   background-repeat: no-repeat;
@@ -100,5 +104,7 @@
 }
 .ui.attached.inverted.menu {
   border: none;
-  margin-bottom: 10px;
+}
+.padding {
+  margin-top: 12px;
 }

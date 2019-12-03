@@ -3,7 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Divider } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Favorites } from '../../api/favorite/Favorites';
 import SearchFormUser from '../components/SearchFormUser';
 
@@ -18,13 +17,12 @@ class ListMenuItems extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div className="foodmoodbg">
+        <div className="yellow">
         <Container>
-          <Header inverted as="h2" textAlign="center" className="Montserrat">Your Favorites</Header>
+          <Header as="h2" textAlign="center" className="Montserrat">YOUR FAVORITES</Header>
           <Divider inverted/>
           <SearchFormUser />
           <br/>
-          <Link to={'/add/'} className="add">Add Another +</Link>
         </Container>
         </div>
     );
