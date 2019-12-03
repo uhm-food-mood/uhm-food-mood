@@ -1,10 +1,12 @@
 import React from 'react';
-import { Grid, Segment, Header, Form } from 'semantic-ui-react';
+import { Grid, Segment, Header, Loader, Form } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
+import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
@@ -26,7 +28,7 @@ const formSchema = new SimpleSchema({
   ethnicity: {
     label: 'Ethnicity',
     type: String,
-    allowedValues: ['Chinese', 'Japanese', 'French'],
+    allowedValues: ['Chinese', 'Japanese', 'French', 'American'],
     defaultValue: 'Chinese',
   },
   availability: { label: 'Days Open', type: String },
@@ -55,16 +57,16 @@ const formSchema = new SimpleSchema({
 });
 
 /** Renders the Page for adding a document. */
-class AddMenuItem extends React.Component {
+class EditMenuItem extends React.Component {
 
   /** On submit, insert the data. */
-  submit(data, formRef) {
+  submit(data) {
     const {
       name, image, vendor, price, availability, starting, startingPeriod, ending, endingPeriod,
-      vegan, ethnicity } = data;
+      vegan, ethnicity, _id } = data;
     const owner = Meteor.user().username;
     const master = 'yes';
-    MenuItems.insert({
+    MenuItems.update(_id, { $set: {
           name,
           image,
           vendor,
@@ -78,28 +80,28 @@ class AddMenuItem extends React.Component {
           ethnicity,
           owner,
           master,
-        },
+        } },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
           } else {
-            swal('Success', 'Item added successfully', 'success');
-            formRef.reset();
+            swal('Success', 'Item updated successfully', 'success');
           }
         });
   }
 
-  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-    let fRef = null;
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
+  renderPage() {
     return (
         <div className='foodmoodbg'>
           <Grid container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Add a Menu Item!</Header>
-              <AutoForm ref={ref => {
-                fRef = ref;
-              }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
+              <Header as="h2" textAlign="center" inverted>Edit a Menu Item!</Header>
+              <AutoForm schema={formSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
                 <Segment>
                   <Form.Group widths='equal'>
                   <TextField className='josefin' name='name'/>
@@ -131,4 +133,20 @@ class AddMenuItem extends React.Component {
   }
 }
 
-export default AddMenuItem;
+EditMenuItem.propTypes = {
+  doc: PropTypes.object,
+  model: PropTypes.object,
+  ready: PropTypes.bool.isRequired,
+};
+
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+export default withTracker(({ match }) => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe('AllMenuItems');
+  return {
+    doc: MenuItems.findOne(documentId),
+    ready: subscription.ready(),
+  };
+})(EditMenuItem);

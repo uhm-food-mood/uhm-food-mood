@@ -3,10 +3,10 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Define a Mongo collection to hold the data. */
-const MenuItems = new Mongo.Collection('MenuItems');
+const Favorites = new Mongo.Collection('Favorites');
 
 /** Define a schema to specify the structure of each document in the collection. */
-const MenuItemsSchema = new SimpleSchema({
+const FavoritesSchema = new SimpleSchema({
   image: String,
   name: String,
   vendor: String,
@@ -19,11 +19,11 @@ const MenuItemsSchema = new SimpleSchema({
   endingPeriod: String,
   vegan: String,
   ethnicity: String,
-  master: String,
+  MenuId: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
-MenuItems.attachSchema(MenuItemsSchema);
+Favorites.attachSchema(FavoritesSchema);
 
 /** Make the collection and schema available to other code. */
-export { MenuItems, MenuItemsSchema };
+export { Favorites, FavoritesSchema };
