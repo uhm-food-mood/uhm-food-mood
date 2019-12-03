@@ -13,12 +13,28 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+.center {
+  text-align: center;
+}
 .foodlistingsbg {
   background-color: ivory;
   color: black;
 }
-
+.red {
+  background-color: #E98074;
+}
+.yellow {
+  background-color: #FEDD36;
+}
+.landingbg {
+  background-image: url('images/black-fork-and-knife-clip-art-940302.jpg');
+  background-repeat: no-repeat;
+  height: 750px;
+}
+.landing-desc{
+  padding-top: 130px;
+  font-family: 'Lato';
+}
 .ui.cards > .card > .content > .header:not(.ui), .ui.card > .content > .header:not(.ui) {
   font-family: 'Montserrat';
   padding-top: 10px;
@@ -47,8 +63,6 @@
   text-align: center !important;
 }
 .landing{
-  color: white;
-  text-align: center;
   font-family: 'Josefin Sans';
 }
 
