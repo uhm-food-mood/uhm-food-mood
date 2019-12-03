@@ -11,6 +11,7 @@ class Landing extends React.Component {
   render() {
     return (
         <div>
+          <div className='yellow'>
           <div className='landingbg'>
             <Container>
               <Grid>
@@ -35,6 +36,7 @@ class Landing extends React.Component {
                 </Grid.Column>
               </Grid>
             </Container>
+          </div>
           </div>
           <div className='yellow'>
             <Container>
