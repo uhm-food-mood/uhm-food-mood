@@ -84,3 +84,7 @@
 .sign {
   margin-top: 20px;
 }
+.ui.attached.inverted.menu {
+  border: none;
+  margin-bottom: 10px;
+}
