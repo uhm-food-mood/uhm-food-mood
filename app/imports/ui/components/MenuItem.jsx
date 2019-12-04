@@ -11,14 +11,14 @@ import { Favorites } from '../../api/favorite/Favorites';
 
 function available(starting, startingPeriod, ending, endingPeriod) {
   // eslint-disable-next-line radix
-  let start = moment().hour(parseInt(starting));
+  let start = moment().hour(parseInt(starting) - 1);
   if (startingPeriod === 'PM') {
     // eslint-disable-next-line radix
     start = moment().hour(parseInt(starting) + 12);
   }
   // console.log(start);
   // eslint-disable-next-line radix
-  let end = moment().hour(parseInt(ending));
+  let end = moment().hour(parseInt(ending) - 1);
   if (endingPeriod === 'PM') {
     // eslint-disable-next-line radix
     end = moment().hour(parseInt(ending) + 12);
@@ -35,8 +35,8 @@ function available(starting, startingPeriod, ending, endingPeriod) {
 class MenuItem extends React.Component {
 
   favorite() {
-    console.log(this.props.menuitems.name);
-    console.log(this.props.menuitems._id);
+    // console.log(this.props.menuitems.name);
+    // console.log(this.props.menuitems._id);
     const name = this.props.menuitems.name;
     const image = this.props.menuitems.image;
     const vendor = this.props.menuitems.vendor;
@@ -88,20 +88,58 @@ class MenuItem extends React.Component {
             <Card.Description>{this.props.menuitems.starting}:00 {this.props.menuitems.startingPeriod} -
               {this.props.menuitems.ending}:00 {this.props.menuitems.endingPeriod}
             </Card.Description>
-          {available(this.props.menuitems.starting,
-              this.props.menuitems.startingPeriod,
-              this.props.menuitems.ending,
-              this.props.menuitems.endingPeriod) ? (
-              <Card.Description className="green">
-                Available now!
-              </Card.Description>
-          ) : ''}
+            {available(this.props.menuitems.starting,
+                this.props.menuitems.startingPeriod,
+                this.props.menuitems.ending,
+                this.props.menuitems.endingPeriod) ? (
+                <Card.Description className="green">
+                  Available now!
+                </Card.Description>
+            ) : ''}
             <Button icon onClick={() => this.favorite()}>
-              <Icon name='heart' />
+              <Icon name='heart'/>
             </Button>
-            <Label color='red'>{this.props.menuitems.ethnicity}</Label>
+            {this.props.menuitems.ethnicity === 'Japanese' ? (
+                <Label color='red'>Japanese</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Chinese' ? (
+                <Label color='orange'>Chinese</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'French' ? (
+                <Label color='yellow'>French</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'American' ? (
+                <Label color='brown'>American</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Thai' ? (
+                <Label color='teal'>Thai</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Mediterranean' ? (
+                <Label color='blue'>Mediterranean</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Middle Eastern' ? (
+                <Label color='violet'>Middle Eastern</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Indian' ? (
+                <Label color='purple'>Indian</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Mexican' ? (
+                <Label color='pink'>Mexican</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Hawaiian' ? (
+                <Label color='green'>Hawaiian</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Korean' ? (
+                <Label color='black'>Korean</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Vietnamese' ? (
+                <Label color='grey'>Vietnamese</Label>
+            ) : ''}
+            {this.props.menuitems.ethnicity === 'Brazilian' ? (
+                <Label color='olive'>Brazilian</Label>
+            ) : ''}
             {this.props.menuitems.vegan === 'yes' ? (
-              <Label color='green'>vegan</Label>
+                <Label color='green'>vegan</Label>
             ) : ''}
           </Card.Content>
         </Card>
