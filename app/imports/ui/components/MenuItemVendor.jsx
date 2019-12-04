@@ -1,9 +1,12 @@
 import React from 'react';
 import { Card, Image, Label, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 import moment from 'moment';
 import { MenuItems } from '../../api/menu/MenuItems';
+import { Favorites } from '../../api/favorite/Favorites';
 
 function available(starting, startingPeriod, ending, endingPeriod) {
   // eslint-disable-next-line radix
@@ -33,6 +36,7 @@ class MenuItemVendor extends React.Component {
 
   removeItem(docID) {
     MenuItems.remove(docID);
+    Favorites.find({ MenuId: docID }).map((favorite) => Favorites.remove(favorite._id));
     // console.log(docID);
   }
 
@@ -82,4 +86,11 @@ MenuItemVendor.propTypes = {
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(MenuItemVendor);
+export default withTracker(() => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe('AllFavorites');
+  return {
+    ready: subscription.ready(),
+  };
+})(MenuItemVendor);

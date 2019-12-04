@@ -12,6 +12,7 @@ import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
 import { MenuItems } from '../../api/menu/MenuItems';
+import { Favorites } from '../../api/favorite/Favorites';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
@@ -65,6 +66,8 @@ class EditMenuItem extends React.Component {
       name, image, vendor, price, availability, starting, startingPeriod, ending, endingPeriod,
       vegan, ethnicity, _id } = data;
     const owner = Meteor.user().username;
+    const id = this.props.doc._id;
+    console.log(id);
     const master = 'yes';
     MenuItems.update(_id, { $set: {
           name,
@@ -88,6 +91,20 @@ class EditMenuItem extends React.Component {
             swal('Success', 'Item updated successfully', 'success');
           }
         });
+    console.log(Favorites.find({ MenuId: id }));
+    Favorites.find({ MenuId: id }).map((favorite) => Favorites.update(favorite._id, { $set: {
+        name: name,
+        image: image,
+        vendor: vendor,
+        price: price,
+        availability: availability,
+        starting: starting,
+        startingPeriod: startingPeriod,
+        ending: ending,
+        endingPeriod: endingPeriod,
+        vegan: vegan,
+        ethnicity: ethnicity,
+      } }));
   }
 
   render() {
@@ -145,8 +162,9 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('AllMenuItems');
+  const subscription2 = Meteor.subscribe('AllFavorites');
   return {
     doc: MenuItems.findOne(documentId),
-    ready: subscription.ready(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(EditMenuItem);

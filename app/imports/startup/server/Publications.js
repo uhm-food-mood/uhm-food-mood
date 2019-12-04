@@ -46,3 +46,6 @@ Meteor.publish('Favorites', function publish() {
   }
   return this.ready();
 });
+Meteor.publish('AllFavorites', function publish() {
+  return Favorites.find();
+});
