@@ -47,6 +47,7 @@ class App extends React.Component {
               <VendorAdminProtectedRoute path="/add" component={AddMenuItem}/>
               <VendorAdminProtectedRoute path="/edit/:_id" component={EditMenuItem}/>
               <AdminProtectedRoute path="/admin" component={ListMenuItemsAdmin}/>
+              <AdminProtectedRoute path="/list" component={ListMenuItems}/>
               <AdminProtectedRoute path="/adminReviews" component={ListTableReviewsAdmin}/>
               <VendorProtectedRoute path="/vendor" component={ListMenuItemsVendor}/>
               <ProtectedRoute path="/signout" component={Signout}/>
