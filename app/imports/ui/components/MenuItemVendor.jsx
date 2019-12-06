@@ -102,7 +102,7 @@ class MenuItemVendor extends React.Component {
                 <Label color='olive'>Brazilian</Label>
             ) : ''}
             {this.props.menuitems.vegan === 'yes' ? (
-                <Label color='green'>vegan</Label>
+                <Label color='green'>Vegan</Label>
             ) : ''}
           </Card.Content>
           <Card.Content extra>

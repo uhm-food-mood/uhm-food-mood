@@ -615,6 +615,22 @@
     "master": "yes"
   },
   {
+    "name": "Crepe Monsieur",
+    "image": "https://www.theflavorbender.com/wp-content/uploads/2017/11/Croque-Monsieur-The-Flavor-Bender-Featured-Image-SQ-4.jpg",
+    "vendor": "Le Crêpe Café",
+    "owner": "vendor@foo.com",
+    "price": "8.99",
+    "availability": "Monday - Friday",
+    "starting": 8,
+    "startingPeriod": "AM",
+    "ending": 4,
+    "endingPeriod": "PM",
+    "vegan": "no",
+    "ethnicity": "French",
+    "master": "yes"
+  },
+
+  {
     "name": "Pesto- Pesto",
     "image": "https://www.williams-sonoma.com/wsimgs/ab/images/dp/recipe/201943/0038/img90l.jpg",
     "vendor": "Le Crêpe Café",
