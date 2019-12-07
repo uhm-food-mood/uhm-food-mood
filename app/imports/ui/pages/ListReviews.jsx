@@ -44,9 +44,10 @@ ListReviews.propTypes = {
 export default withTracker(({ match }) => {
   // Get access to Stuff documents.
   const documentId = match.params._id;
+  // console.log(documentId);
   const subscription = Meteor.subscribe('Reviews');
   return {
-    reviews: Reviews.find({ MenuId: documentId }).fetch(),
+    reviews: Reviews.find({ menuId: documentId }).fetch(),
     id: documentId,
     ready: subscription.ready(),
   };

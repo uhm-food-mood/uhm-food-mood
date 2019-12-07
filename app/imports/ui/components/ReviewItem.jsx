@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
 
 class ReviewItem extends React.Component {
 
@@ -18,6 +19,11 @@ class ReviewItem extends React.Component {
             <Card.Description>
               {this.props.ReviewItems.rating}
             </Card.Description>
+            {this.props.ReviewItems.owner === Meteor.user().username ? (
+                <Card.Content extra>
+                  <Link to={`/editReview/${this.props.ReviewItems._id}`}>Edit</Link>
+                </Card.Content>
+            ) : ''}
           </Card.Content>
         </Card>
     );
