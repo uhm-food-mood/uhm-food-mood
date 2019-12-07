@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image, Label, Icon, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import moment from 'moment';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -141,6 +141,9 @@ class MenuItem extends React.Component {
             {this.props.menuitems.vegan === 'yes' ? (
                 <Label color='green'>vegan</Label>
             ) : ''}
+          </Card.Content>
+          <Card.Content extra>
+            <Link to={`/review/${this.props.menuitems._id}`}>Review</Link>
           </Card.Content>
         </Card>
     );

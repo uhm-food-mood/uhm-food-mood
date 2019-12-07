@@ -5,17 +5,43 @@ import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
+import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
+import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
+import { Reviews } from '../../api/review/Reviews';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
   rating: { label: 'Rating', type: Number },
-  description: {label: 'Description', type: String },
+  description: { label: 'Description', type: String },
 });
 
 /** Renders the Page for adding a document. */
 class ReviewMenuItem extends React.Component {
+
+  submit(data, fref) {
+    const {
+      rating, description } = data;
+    const owner = Meteor.user().username;
+    const menuId = this.props.id;
+    Reviews.insert({
+      description,
+      owner,
+      rating,
+      menuId,
+        },
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            swal('Success', 'Review added successfully', 'success');
+            fref.reset();
+          }
+        });
+  }
 
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -45,4 +71,16 @@ class ReviewMenuItem extends React.Component {
   }
 }
 
-export default ReviewMenuItem;
+ReviewMenuItem.propTypes = {
+  id: PropTypes.string.isRequired,
+};
+
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+export default withTracker(({ match }) => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
+  // Get access to Stuff documents.
+  return {
+    id: documentId,
+  };
+})(ReviewMenuItem);

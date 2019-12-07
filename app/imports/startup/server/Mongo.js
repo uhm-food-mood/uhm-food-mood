@@ -20,7 +20,7 @@ if (MenuItems.find().count() === 0) {
 }
 
 function addReviews(data) {
-  console.log(`  Adding Review: ${data.name} (${data.owner})`);
+  console.log(`  Adding Review: (${data.menuId}) (${data.owner})`);
   Reviews.insert(data);
 }
 

@@ -14,9 +14,9 @@
 
   "defaultReviews": [
     { "owner": "john@foo.com",
-      "description": "Nachos could use some salt",
+      "description": "Eggplants were undercooked",
       "rating":  3,
-      "name": "Nachos"
+      "menuId": "E9k3TM7knq6WMcE94"
     }
   ]
 }
