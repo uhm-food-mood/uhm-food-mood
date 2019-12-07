@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Divider, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Divider, Card, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -22,7 +22,11 @@ class ListReviews extends React.Component {
           <Container>
             <Header as="h2" textAlign="center" className="Montserrat">Reviews</Header>
             <Divider/>
-            <Link to={`/addReview/${this.props.id}`} className="add">Add Another +</Link>
+            <Button color='black'>
+              <Link className='review-button' to={`/addReview/${this.props.id}`}>Add a Review</Link>
+            </Button>
+            <br/>
+            <br/>
             <Card.Group itemsPerRow={3}>
               {this.props.reviews.map((reviewitems, index) => <ReviewItem key={index} ReviewItems={reviewitems} />)}
             </Card.Group>

@@ -1,10 +1,15 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Button, Card, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
+import { Reviews } from '../../api/review/Reviews';
 
 class ReviewItem extends React.Component {
+
+  removeItem(docID) {
+    Reviews.remove(docID);
+  }
 
   render() {
     return (
@@ -13,16 +18,65 @@ class ReviewItem extends React.Component {
             <Card.Meta>
               {this.props.ReviewItems.owner}
             </Card.Meta>
+            {this.props.ReviewItems.rating === 1 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.props.ReviewItems.rating === 2 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.props.ReviewItems.rating === 3 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.props.ReviewItems.rating === 4 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.props.ReviewItems.rating === 5 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                </Card.Description>
+            ) : ''}
             <Card.Description>
               {this.props.ReviewItems.description}
             </Card.Description>
-            <Card.Description>
-              {this.props.ReviewItems.rating}
-            </Card.Description>
             {this.props.ReviewItems.owner === Meteor.user().username ? (
+                <div>
                 <Card.Content extra>
-                  <Link to={`/editReview/${this.props.ReviewItems._id}`}>Edit</Link>
+                  <Button>
+                  <Link className='black' floated='left' to={`/editReview/${this.props.ReviewItems._id}`}>Edit</Link>
+                  </Button>
+                  <Button color='red' floated='right' onClick={() => this.removeItem(this.props.ReviewItems._id)}>
+                    Remove
+                  </Button>
                 </Card.Content>
+                </div>
             ) : ''}
           </Card.Content>
         </Card>

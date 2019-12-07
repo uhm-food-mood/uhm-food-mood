@@ -143,7 +143,7 @@ class MenuItem extends React.Component {
             ) : ''}
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/review/${this.props.menuitems._id}`}>Review</Link>
+            <Link to={`/review/${this.props.menuitems._id}`}>See Reviews</Link>
           </Card.Content>
         </Card>
     );

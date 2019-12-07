@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
-import TextField from 'uniforms-semantic/TextField';
+import SelectField from 'uniforms-semantic/SelectField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
@@ -15,7 +15,11 @@ import { Reviews } from '../../api/review/Reviews';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
-  rating: { label: 'Rating', type: Number },
+  rating: {
+    label: 'Rating',
+    type: Number,
+    allowedValues: [1, 2, 3, 4, 5],
+  },
   description: { label: 'Description', type: String },
 });
 
@@ -56,7 +60,7 @@ class ReviewMenuItem extends React.Component {
                 fRef = ref;
               }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
                 <Segment>
-                  <TextField className='josefin' name='rating'/>
+                  <SelectField className='josefin' name='rating'/>
                   <LongTextField className='josefin' name='description'/>
                   <SubmitField className='josefin' value='Submit'/>
                   <ErrorsField/>
