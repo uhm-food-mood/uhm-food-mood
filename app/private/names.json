@@ -2,5 +2,77 @@
   {
     "username": "vendor@foo.com",
     "name": "Vendor"
+  },
+  {
+    "username": "daspot@foo.com",
+    "name": "Da Spot"
+  },
+  {
+    "username": "doner@foo.com",
+    "name": "Doner Shack"
+  },
+  {
+    "username": "dunkin@foo.com",
+    "name": "Dunkin' Donuts"
+  },
+  {
+    "username": "govinda@foo.com",
+    "name": "Govinda's"
+  },
+  {
+    "username": "holoholo@foo.com",
+    "name": "Holoholo Grill"
+  },
+  {
+    "username": "hottacos@foo.com",
+    "name": "Hot Tacos"
+  },
+  {
+    "username": "justice@foo.com",
+    "name": "Just Ice"
+  },
+  {
+    "username": "kamitoku@foo.com",
+    "name": "Kamitoku Ramen"
+  },
+  {
+    "username": "landl@foo.com",
+    "name": "L&L Hawaiian Barbecue"
+  },
+  {
+    "username": "lasoon@foo.com",
+    "name": "Lasoon"
+  },
+  {
+    "username": "lecrepe@foo.com",
+    "name": "Le Crêpe Café"
+  },
+  {
+    "username": "ono@foo.com",
+    "name": "Ono Seafood"
+  },
+  {
+    "username": "panda@foo.com",
+    "name": "Panda Express"
+  },
+  {
+    "username": "rocket@foo.com",
+    "name": "Rocket Coffee"
+  },
+  {
+    "username": "sistah@foo.com",
+    "name": "Sistah Truck"
+  },
+  {
+    "username": "bean@foo.com",
+    "name": "The Bean Counter"
+  },
+  {
+    "username": "baale@foo.com",
+    "name": "Ba-Le"
+  },
+  {
+    "username": "jamba@foo.com",
+    "name": "Jamba Juice"
   }
 ]
