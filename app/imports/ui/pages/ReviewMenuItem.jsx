@@ -12,6 +12,7 @@ import SimpleSchema from 'simpl-schema';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { Reviews } from '../../api/review/Reviews';
+import { MenuItems } from '../../api/menu/MenuItems';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
@@ -31,7 +32,11 @@ class ReviewMenuItem extends React.Component {
       rating, description } = data;
     const owner = Meteor.user().username;
     const menuId = this.props.id;
+    const name = MenuItems.findOne({ _id: menuId }).name;
+    const vendor = MenuItems.findOne({ _id: menuId }).vendor;
     Reviews.insert({
+      name,
+      vendor,
       description,
       owner,
       rating,
@@ -83,8 +88,10 @@ ReviewMenuItem.propTypes = {
 export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
+  const subscription = Meteor.subscribe('AllMenuItems');
   // Get access to Stuff documents.
   return {
     id: documentId,
+    ready: subscription.ready(),
   };
 })(ReviewMenuItem);

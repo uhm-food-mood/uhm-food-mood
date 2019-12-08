@@ -12,6 +12,8 @@ class ReviewTable extends React.Component {
   render() {
     return (
         <Table.Row>
+          <Table.Cell>{this.props.review.name}</Table.Cell>
+          <Table.Cell>{this.props.review.vendor}</Table.Cell>
           <Table.Cell>{this.props.review.rating}</Table.Cell>
           <Table.Cell>{this.props.review.description}</Table.Cell>
           <Table.Cell>

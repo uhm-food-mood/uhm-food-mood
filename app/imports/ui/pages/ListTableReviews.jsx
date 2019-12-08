@@ -23,6 +23,8 @@ class ListTableReviews extends React.Component {
           <Table celled>
             <Table.Header>
               <Table.Row>
+                <Table.HeaderCell>Name</Table.HeaderCell>
+                <Table.HeaderCell>Vendor</Table.HeaderCell>
                 <Table.HeaderCell>Rating</Table.HeaderCell>
                 <Table.HeaderCell>Description</Table.HeaderCell>
                 <Table.HeaderCell>Edit</Table.HeaderCell>

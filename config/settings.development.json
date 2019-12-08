@@ -14,6 +14,8 @@
 
   "defaultReviews": [
     { "owner": "john@foo.com",
+      "name": "Eggplant Parmesan",
+      "vendor": "Da Spot",
       "description": "Eggplants were undercooked",
       "rating":  3,
       "menuId": "E9k3TM7knq6WMcE94"

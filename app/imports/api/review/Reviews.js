@@ -7,6 +7,8 @@ const Reviews = new Mongo.Collection('Reviews');
 
 /** Define a schema to specify the structure of each document in the collection. */
 const ReviewsSchema = new SimpleSchema({
+  name: String,
+  vendor: String,
   description: String,
   owner: String,
   rating: Number,
