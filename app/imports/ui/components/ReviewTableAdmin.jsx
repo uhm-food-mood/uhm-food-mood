@@ -2,11 +2,28 @@ import React from 'react';
 import { Table, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
 /** Renders a single row in the List reviews table. See pages/Listreviews.jsx. */
 class ReviewTableAdmin extends React.Component {
   removeItem(docID) {
-    this.props.Reviews.remove(docID);
+    swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this review!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+        .then((willDelete) => {
+          if (willDelete) {
+            this.props.Reviews.remove(docID);
+            swal('Poof! This review has been deleted!', {
+              icon: 'success',
+            });
+          } else {
+            swal('You canceled the deletion!');
+          }
+        });
   }
 
   render() {
@@ -20,7 +37,7 @@ class ReviewTableAdmin extends React.Component {
           <Table.Cell>
             <Link to={`/editReview/${this.props.review._id}`}>Edit</Link>
           </Table.Cell>
-          <Table.Cell><Button icon onClick={() => this.removeItem(this.props.review._id)}>
+          <Table.Cell><Button negative icon onClick={() => this.removeItem(this.props.review._id)}>
             <Icon name='trash' />
           </Button></Table.Cell>
         </Table.Row>

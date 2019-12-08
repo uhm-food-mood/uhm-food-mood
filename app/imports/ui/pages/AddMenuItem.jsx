@@ -10,6 +10,7 @@ import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
 import { MenuItems } from '../../api/menu/MenuItems';
+import BackButton from '../components/BackButton';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
@@ -98,6 +99,9 @@ class AddMenuItem extends React.Component {
           <Grid container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center">Add a Menu Item!</Header>
+              <BackButton/>
+              <br/>
+              <br/>
               <AutoForm ref={ref => {
                 fRef = ref;
               }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
@@ -119,7 +123,9 @@ class AddMenuItem extends React.Component {
                   <SelectField className='josefin' name='ending'/>
                   <SelectField className='josefin' name='endingPeriod'/>
                   </Form.Group>
+                  <Form.Group widths='equal'>
                   <SubmitField className='josefin' value='Submit'/>
+                  </Form.Group>
                   <ErrorsField/>
                 </Segment>
               </AutoForm>

@@ -3,12 +3,29 @@ import { Button, Card, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
+import swal from 'sweetalert';
 import { Reviews } from '../../api/review/Reviews';
 
 class ReviewItem extends React.Component {
 
   removeItem(docID) {
-    Reviews.remove(docID);
+    swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this review!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+        .then((willDelete) => {
+          if (willDelete) {
+            Reviews.remove(docID);
+            swal('Poof! This review has been deleted!', {
+              icon: 'success',
+            });
+          } else {
+            swal('You canceled the deletion!');
+          }
+        });
   }
 
   render() {
