@@ -1,10 +1,13 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Form, Card, Loader } from 'semantic-ui-react';
+import { Form, Card, Loader, Button } from 'semantic-ui-react';
 import FavoriteItem from '/imports/ui/components/FavoriteItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import { Favorites } from '../../api/favorite/Favorites';
+
+let active = false;
 
 class SearchFormUser extends React.Component {
 
@@ -26,6 +29,24 @@ class SearchFormUser extends React.Component {
   }
 
   searchItems = (item) => {
+    // eslint-disable-next-line radix
+    let start = moment().hour(parseInt(item.starting));
+    if (item.startingPeriod === 'PM') {
+      // eslint-disable-next-line radix
+      start = moment().hour(parseInt(item.starting) + 12);
+    }
+    // console.log(start);
+    // eslint-disable-next-line radix
+    let end = moment().hour(parseInt(item.ending));
+    if (item.endingPeriod === 'PM') {
+      // eslint-disable-next-line radix
+      end = moment().hour(parseInt(item.ending) + 12);
+    }
+    // console.log(end);
+    if (moment().isBefore(end) && moment().isAfter(start) && this.state.query === 'available') {
+      // console.log(true);
+      return true;
+    }
     if (item.name.toLowerCase().includes(this.state.query.toLowerCase())) {
       return true;
     }
@@ -62,6 +83,45 @@ class SearchFormUser extends React.Component {
     return false;
   }
 
+  wasClicked = () => {
+    if (active === true) {
+      active = false;
+      // console.log(false);
+      this.forceUpdate();
+      return active;
+    }
+    if (active === false) {
+      // console.log(true);
+      active = true;
+    }
+    this.forceUpdate();
+    return active;
+  }
+
+  available = (item) => {
+    // eslint-disable-next-line radix
+    // console.log('sorting availability');
+    // eslint-disable-next-line radix
+    let start = moment().hour(parseInt(item.starting));
+    if (item.startingPeriod === 'PM') {
+      // eslint-disable-next-line radix
+      start = moment().hour(parseInt(item.starting) + 12);
+    }
+    // console.log(start);
+    // eslint-disable-next-line radix
+    let end = moment().hour(parseInt(item.ending));
+    if (item.endingPeriod === 'PM') {
+      // eslint-disable-next-line radix
+      end = moment().hour(parseInt(item.ending) + 12);
+    }
+    // console.log(end);
+    if (moment().isBefore(end) && moment().isAfter(start)) {
+      // console.log(true);
+      return true;
+    }
+    return false;
+  }
+
   renderPage() {
     return (
         <div>
@@ -69,10 +129,23 @@ class SearchFormUser extends React.Component {
           <Form.Input placeholder='Search...' value={this.state.query} onChange={this.handleInputChange} width={4}/>
           <br/>
         </Form>
-          <Card.Group itemsPerRow={3}>
-            {this.props.menuitems.filter(this.searchItems).map((FavoriteItems, index) => <FavoriteItem key={index}
-                          FavoriteItems={FavoriteItems} />)}
-          </Card.Group>
+          <Button onClick={this.wasClicked}>
+            Food Available Now
+          </Button>
+          <br/>
+          <br/>
+          {active === true ? (
+            <Card.Group itemsPerRow={3}>
+            {this.props.menuitems.filter(this.available).map((FavoriteItems, index) => <FavoriteItem
+                key={index} FavoriteItems={FavoriteItems} />)}
+            </Card.Group>
+          ) : ''}
+          {active === false ? (
+              <Card.Group itemsPerRow={3}>
+                {this.props.menuitems.filter(this.searchItems).map((FavoriteItems, index) => <FavoriteItem
+                    key={index} FavoriteItems={FavoriteItems} />)}
+              </Card.Group>
+          ) : ''}
         </div>
     );
   }
