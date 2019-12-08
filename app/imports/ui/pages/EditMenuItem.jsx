@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header, Loader, Form } from 'semantic-ui-react';
+import { Roles } from 'meteor/alanning:roles';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SelectField from 'uniforms-semantic/SelectField';
@@ -128,7 +129,9 @@ class EditMenuItem extends React.Component {
                   <Form.Group widths='equal'>
                   <TextField className='josefin' name='name'/>
                   <TextField className='josefin' name='image'/>
-                  <TextField className='josefin' name='vendor'/>
+                    {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                        <TextField className='josefin' name='vendor'/>
+                    ) : ''}
                   </Form.Group>
                   <Form.Group widths='equal'>
                   <TextField className='josefin' name='price'/>

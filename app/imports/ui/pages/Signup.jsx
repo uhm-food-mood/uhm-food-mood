@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import { Names } from '../../api/name/Names';
 
 /**
  * Signup component is similar to signin component, but we create a new user instead.
@@ -21,7 +22,11 @@ class Signup extends React.Component {
 
   /** Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
-    const { email, password } = this.state;
+    const { name, email, password } = this.state;
+    Names.insert({
+      username: email,
+      name,
+    });
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
@@ -47,6 +52,14 @@ class Signup extends React.Component {
             </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
+                <Form.Input
+                    label="Name"
+                    icon="user"
+                    iconPosition="left"
+                    name="name"
+                    placeholder="Name"
+                    onChange={this.handleChange}
+                />
                 <Form.Input
                   label="Email"
                   icon="user"

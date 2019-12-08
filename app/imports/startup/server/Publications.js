@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { MenuItems } from '../../api/menu/MenuItems';
 import { Reviews } from '../../api/review/Reviews';
 import { Favorites } from '../../api/favorite/Favorites';
+import { Names } from '../../api/name/Names';
 
 /** This subscription publishes only the documents associated with the logged in user */
 
@@ -55,4 +56,7 @@ Meteor.publish('UserReviews', function publish() {
     return Reviews.find({ owner: username });
   }
   return this.ready();
+});
+Meteor.publish('Names', function publish() {
+  return Names.find();
 });
