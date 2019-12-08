@@ -11,7 +11,7 @@ class Landing extends React.Component {
   render() {
     return (
         <div className='padding'>
-          <div className='yellow'>
+          <div className='peach'>
           <div className='landingbg'>
             <Container>
               <Grid>

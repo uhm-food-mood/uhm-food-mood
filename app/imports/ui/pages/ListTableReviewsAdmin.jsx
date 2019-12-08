@@ -17,12 +17,14 @@ class ListTableReviewsAdmin extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+        <div className="peach">
         <Container>
           <Header as="h2" textAlign="center" className="Montserrat">ALL REVIEWS</Header>
           <Divider/>
           <SearchReviewAdmin/>
           <br/>
         </Container>
+        </div>
     );
   }
 }

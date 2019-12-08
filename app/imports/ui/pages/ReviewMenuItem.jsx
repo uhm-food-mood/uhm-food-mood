@@ -57,7 +57,7 @@ class ReviewMenuItem extends React.Component {
   render() {
     let fRef = null;
     return (
-        <div className='foodmoodbg'>
+        <div className='peach'>
           <Grid container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Review Menu Item!</Header>
