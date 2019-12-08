@@ -29,16 +29,18 @@ class NavBar extends React.Component {
                         exact to="/reviews" key='add'>YOUR REVIEWS</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Menu.Item as={NavLink} className='montserrat' activeClassName="active"
-                       exact to="/admin" key='admin'>MANAGE LISTINGS</Menu.Item>
-        ) : ''}
-        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Menu.Item as={NavLink} className='montserrat' activeClassName="active"
-                       exact to="/adminReviews" key='admin'>MANAGE REVIEWS</Menu.Item>
-        ) : ''}
-        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Menu.Item as={NavLink} className='montserrat' activeClassName="active"
-                       exact to="/list" key='admin'>MANAGE FAVORITES</Menu.Item>
+            <Menu.Item>
+            <Dropdown inverted className='montserrat white' text="MANAGE">
+              <Dropdown.Menu>
+              <Dropdown.Item as={NavLink} className='montserrat' activeClassName="active"
+                         exact to="/admin" key='admin'>MANAGE LISTINGS</Dropdown.Item>
+              <Dropdown.Item as={NavLink} className='montserrat' activeClassName="active"
+                         exact to="/adminReviews" key='admin'>MANAGE REVIEWS</Dropdown.Item>
+              <Dropdown.Item as={NavLink} className='montserrat' activeClassName="active"
+                         exact to="/list" key='admin'>MANAGE FAVORITES</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            </Menu.Item>
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
             <Menu.Item as={NavLink} className='montserrat' activeClassName="active"

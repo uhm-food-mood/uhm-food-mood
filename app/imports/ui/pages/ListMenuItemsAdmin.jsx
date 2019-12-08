@@ -24,7 +24,6 @@ class ListMenuItemsAdmin extends React.Component {
           <Divider/>
           <SearchFormAdmin />
           <br/>
-          <Link to={'/add/'} className="add">Add Another +</Link>
         </Container>
         </div>
     );
