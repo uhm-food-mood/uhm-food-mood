@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image, Label, Icon, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import moment from 'moment';
 import { Favorites } from '../../api/favorite/Favorites';
 
@@ -63,6 +63,9 @@ class FavoriteItem extends React.Component {
             {this.props.FavoriteItems.vegan === 'yes' ? (
               <Label color='green'>vegan</Label>
             ) : ''}
+          </Card.Content>
+          <Card.Content extra>
+            <Link to={`/review/${this.props.FavoriteItems.MenuId}`}>See Reviews</Link>
           </Card.Content>
         </Card>
     );

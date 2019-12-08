@@ -20,6 +20,7 @@ const formSchema = new SimpleSchema({
     label: 'Rating',
     type: Number,
     allowedValues: [1, 2, 3, 4, 5],
+    defaultValue: 1,
   },
   description: { label: 'Description', type: String },
 });
