@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, Image, Label, Icon, Button } from 'semantic-ui-react';
+import { Card, Image, Label, Icon, Button, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { withTracker } from 'meteor/react-meteor-data';
 import moment from 'moment';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -33,6 +34,14 @@ function available(starting, startingPeriod, ending, endingPeriod) {
 }
 
 class MenuItem extends React.Component {
+
+  isFavorited() {
+    if (Favorites.findOne({ MenuId: this.props.menuitems._id })) {
+      console.log(Favorites.findOne({ MenuId: this.props.menuitems._id }));
+      return true;
+    }
+    return false;
+  }
 
   favorite() {
     // console.log(this.props.menuitems.name);
@@ -72,9 +81,14 @@ class MenuItem extends React.Component {
             swal('Success', 'Added to favorites!', 'success');
           }
         });
+    this.forceUpdate();
   }
 
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  renderPage() {
     return (
         <Card>
           <Card.Content>
@@ -96,11 +110,16 @@ class MenuItem extends React.Component {
                   Available now!
                 </Card.Description>
             ) : ''}
-            { Meteor.user() ? (
-                <Button icon onClick={() => this.favorite()}>
+            {Meteor.user() && this.isFavorited() ? (
+                <Button color='red' icon onClick={() => this.favorite()}>
                   <Icon name='heart'/>
                 </Button>
-            ) : ''}
+            ) : '' }
+            {Meteor.user() && !this.isFavorited() ? (
+              <Button icon onClick={() => this.favorite()}>
+              <Icon name='heart'/>
+              </Button>
+              ) : ''}
             {this.props.menuitems.ethnicity === 'Japanese' ? (
                 <Label color='red'>Japanese</Label>
             ) : ''}
@@ -155,7 +174,14 @@ class MenuItem extends React.Component {
 /** Require a document to be passed to this component. */
 MenuItem.propTypes = {
   menuitems: PropTypes.object.isRequired,
+  ready: PropTypes.bool.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(MenuItem);
+export default withTracker(() => {
+  // console.log(documentId);
+  const subscription = Meteor.subscribe('Favorites');
+  return {
+    ready: subscription.ready(),
+  };
+})(MenuItem);
