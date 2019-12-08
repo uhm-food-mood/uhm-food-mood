@@ -13,6 +13,7 @@ import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
 import { MenuItems } from '../../api/menu/MenuItems';
 import { Favorites } from '../../api/favorite/Favorites';
+import BackButton from '../components/BackButton';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
@@ -119,6 +120,9 @@ class EditMenuItem extends React.Component {
           <Grid container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center">Edit a Menu Item!</Header>
+              <BackButton/>
+              <br/>
+              <br/>
               <AutoForm schema={formSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
                 <Segment>
                   <Form.Group widths='equal'>
