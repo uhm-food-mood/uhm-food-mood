@@ -110,7 +110,7 @@ class MenuItemAdmin extends React.Component {
             <Link to={`/edit/${this.props.menuitems._id}`}>Edit</Link>
           </Card.Content>
           <Card.Content extra>
-            <Button icon onClick={() => this.removeItem(this.props.menuitems._id)}>
+            <Button negative icon onClick={() => this.removeItem(this.props.menuitems._id)}>
               Remove
             </Button>
           </Card.Content>

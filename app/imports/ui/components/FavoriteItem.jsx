@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Image, Label, Icon, Button } from 'semantic-ui-react';
+import { Card, Image, Label, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import moment from 'moment';
+import swal from 'sweetalert';
 import { Favorites } from '../../api/favorite/Favorites';
 
 function available(starting, startingPeriod, ending, endingPeriod) {
@@ -32,7 +33,23 @@ function available(starting, startingPeriod, ending, endingPeriod) {
 class FavoriteItem extends React.Component {
 
   removeItem(docID) {
-    Favorites.remove(docID);
+    swal({
+      title: 'Are you sure?',
+      text: 'It will disappear from your Favorites page, but you can re-favorite at any time in the Food Options page!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+        .then((willDelete) => {
+          if (willDelete) {
+            Favorites.remove(docID);
+            swal('Poof! You unfavorited this item!', {
+              icon: 'success',
+            });
+          } else {
+            swal('You canceled unfavoriting!');
+          }
+        });
   }
 
   render() {
@@ -56,13 +73,13 @@ class FavoriteItem extends React.Component {
                   Available now!
                 </Card.Description>
             ) : ''}
-            <Button icon onClick={() => this.removeItem(this.props.FavoriteItems._id)}>
-              <Icon name='trash' />
-            </Button>
             <Label color='red'>{this.props.FavoriteItems.ethnicity}</Label>
             {this.props.FavoriteItems.vegan === 'yes' ? (
-              <Label color='green'>vegan</Label>
+              <Label color='green'>Vegan</Label>
             ) : ''}
+            <Button color='red' floated='right' icon onClick={() => this.removeItem(this.props.FavoriteItems._id)}>
+              Remove
+            </Button>
           </Card.Content>
           <Card.Content extra>
             <Link to={`/review/${this.props.FavoriteItems.MenuId}`}>See Reviews</Link>

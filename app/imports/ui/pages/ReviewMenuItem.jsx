@@ -13,6 +13,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { Reviews } from '../../api/review/Reviews';
 import { MenuItems } from '../../api/menu/MenuItems';
+import BackButton from '../components/BackButton';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
@@ -62,6 +63,9 @@ class ReviewMenuItem extends React.Component {
           <Grid container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center" inverted>Review Menu Item!</Header>
+                <BackButton/>
+                <br/>
+                <br/>
               <AutoForm ref={ref => {
                 fRef = ref;
               }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
