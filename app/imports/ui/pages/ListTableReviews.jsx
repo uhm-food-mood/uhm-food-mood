@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader, Divider } from 'semantic-ui-react';
+import { Container, Header, Loader, Divider } from 'semantic-ui-react';
 import { Reviews } from '/imports/api/review/Reviews';
-import ReviewTable from '/imports/ui/components/ReviewTable';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import SearchReview from '../components/SearchReview';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListTableReviews extends React.Component {
@@ -20,22 +20,7 @@ class ListTableReviews extends React.Component {
         <Container>
           <Header as="h2" textAlign="center" className="Montserrat">YOUR REVIEWS</Header>
           <Divider/>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Vendor</Table.HeaderCell>
-                <Table.HeaderCell>Rating</Table.HeaderCell>
-                <Table.HeaderCell>Description</Table.HeaderCell>
-                <Table.HeaderCell>Edit</Table.HeaderCell>
-                <Table.HeaderCell>Remove</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.reviews.map((review) => <ReviewTable key={review._id}
-                                                                        review={review} Reviews={Reviews}/>)}
-            </Table.Body>
-          </Table>
+          <SearchReview/>
           <br/>
         </Container>
     );
