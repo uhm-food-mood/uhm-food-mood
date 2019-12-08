@@ -13,6 +13,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.peach {
+  background-color: #FABBBB;
+}
 .center {
   text-align: center;
 }

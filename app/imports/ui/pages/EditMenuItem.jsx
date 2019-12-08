@@ -115,7 +115,7 @@ class EditMenuItem extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <div className='yellow padding'>
+        <div className='peach padding'>
           <Grid container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center">Edit a Menu Item!</Header>

@@ -22,6 +22,7 @@ import EditMenuItem from '../pages/EditMenuItem';
 import ReviewMenuItem from '../pages/ReviewMenuItem';
 import EditReviewMenuItem from '../pages/EditReviewMenuItem';
 import ListTableReviews from '../pages/ListTableReviews';
+import ListTableReviewsAdmin from '../pages/ListTableReviewsAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -44,6 +45,7 @@ class App extends React.Component {
               <VendorAdminProtectedRoute path="/add" component={AddMenuItem}/>
               <VendorAdminProtectedRoute path="/edit/:_id" component={EditMenuItem}/>
               <AdminProtectedRoute path="/admin" component={ListMenuItemsAdmin}/>
+              <AdminProtectedRoute path="/adminReviews" component={ListTableReviewsAdmin}/>
               <VendorProtectedRoute path="/vendor" component={ListMenuItemsVendor}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

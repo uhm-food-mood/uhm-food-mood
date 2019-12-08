@@ -94,7 +94,7 @@ class AddMenuItem extends React.Component {
   render() {
     let fRef = null;
     return (
-        <div className='yellow padding'>
+        <div className='peach padding'>
           <Grid container centered>
             <Grid.Column>
               <Header as="h2" textAlign="center">Add a Menu Item!</Header>
