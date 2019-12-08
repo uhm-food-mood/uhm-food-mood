@@ -38,7 +38,7 @@ class App extends React.Component {
               <Route path="/listings" component={FoodListings}/>
               <Route path="/allListings" component={ListAllMenuItems}/>
               <ProtectedRoute path="/list" component={ListMenuItems}/>
-              <ProtectedRoute path="/review/:_id" component={ListReviews}/>
+              <Route path="/review/:_id" component={ListReviews}/>
               <ProtectedRoute path="/addReview/:_id" component={ReviewMenuItem}/>
               <ProtectedRoute path="/editReview/:_id" component={EditReviewMenuItem}/>
               <ProtectedRoute path="/reviews/" component={ListTableReviews}/>

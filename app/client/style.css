@@ -41,6 +41,7 @@
 .landing-desc{
   padding-top: 130px;
   font-family: 'Lato';
+  font-size: small;
 }
 .ui.cards > .card > .content > .header:not(.ui), .ui.card > .content > .header:not(.ui) {
   font-family: 'Montserrat';
