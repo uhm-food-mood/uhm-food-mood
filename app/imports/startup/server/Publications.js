@@ -49,3 +49,10 @@ Meteor.publish('Favorites', function publish() {
 Meteor.publish('AllFavorites', function publish() {
   return Favorites.find();
 });
+Meteor.publish('UserReviews', function publish() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Reviews.find({ owner: username });
+  }
+  return this.ready();
+});
