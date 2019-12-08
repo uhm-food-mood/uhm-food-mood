@@ -47,7 +47,7 @@ class MenuTableAdmin extends React.Component {
           <Table.Cell>
             <Link to={`/edit/${this.props.menuitems._id}`}>Edit</Link>
           </Table.Cell>
-          <Table.Cell><Button icon onClick={() => this.removeItem(this.props.menuitems._id)}>
+          <Table.Cell><Button negative icon onClick={() => this.removeItem(this.props.menuitems._id)}>
             <Icon name='trash' />
           </Button></Table.Cell>
         </Table.Row>

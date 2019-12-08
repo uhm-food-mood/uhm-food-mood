@@ -37,7 +37,7 @@ class ReviewTableAdmin extends React.Component {
           <Table.Cell>
             <Link to={`/editReview/${this.props.review._id}`}>Edit</Link>
           </Table.Cell>
-          <Table.Cell><Button icon onClick={() => this.removeItem(this.props.review._id)}>
+          <Table.Cell><Button negative icon onClick={() => this.removeItem(this.props.review._id)}>
             <Icon name='trash' />
           </Button></Table.Cell>
         </Table.Row>
