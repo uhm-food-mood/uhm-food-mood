@@ -1,8 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Form, Table, Loader } from 'semantic-ui-react';
+import { Form, Table, Loader, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Roles } from 'meteor/alanning:roles';
+import { Link } from 'react-router-dom';
 import { MenuItems } from '../../api/menu/MenuItems';
 import MenuTableAdmin from './MenuTableAdmin';
 
@@ -82,11 +84,18 @@ class SearchFormAdmin extends React.Component {
           <Form.Input placeholder='Search...' value={this.state.query} onChange={this.handleInputChange} width={4}/>
           <br/>
         </Form>
+          <Button color='black' floated='right'>
+            <Link className='review-button' to={'/add/'}>Add Menu Item</Link>
+          </Button>
+          <br/>
+          <br/>
           <Table celled>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Food Name</Table.HeaderCell>
-                <Table.HeaderCell>Vendor</Table.HeaderCell>
+                {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                    <Table.HeaderCell>Vendor</Table.HeaderCell>
+                ) : ''}
                 <Table.HeaderCell>Price</Table.HeaderCell>
                 <Table.HeaderCell>Availability</Table.HeaderCell>
                 <Table.HeaderCell>Availability times</Table.HeaderCell>
