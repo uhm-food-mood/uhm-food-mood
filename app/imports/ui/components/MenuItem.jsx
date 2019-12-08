@@ -96,9 +96,11 @@ class MenuItem extends React.Component {
                   Available now!
                 </Card.Description>
             ) : ''}
-            <Button icon onClick={() => this.favorite()}>
-              <Icon name='heart'/>
-            </Button>
+            { Meteor.user() ? (
+                <Button icon onClick={() => this.favorite()}>
+                  <Icon name='heart'/>
+                </Button>
+            ) : ''}
             {this.props.menuitems.ethnicity === 'Japanese' ? (
                 <Label color='red'>Japanese</Label>
             ) : ''}
