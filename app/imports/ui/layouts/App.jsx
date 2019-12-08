@@ -25,6 +25,7 @@ import ListTableReviews from '../pages/ListTableReviews';
 import ListTableReviewsAdmin from '../pages/ListTableReviewsAdmin';
 import AvailableNow from '../pages/AvailableNow';
 import ListTableFavoritesAdmin from '../pages/ListTableFavoritesAdmin';
+import ListTableAccountsAdmin from '../pages/ListTableAccountsAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -50,6 +51,7 @@ class App extends React.Component {
               <AdminProtectedRoute path="/admin" component={ListMenuItemsAdmin}/>
               <AdminProtectedRoute path="/listFavorites" component={ListTableFavoritesAdmin}/>
               <AdminProtectedRoute path="/adminReviews" component={ListTableReviewsAdmin}/>
+              <AdminProtectedRoute path="/users" component={ListTableAccountsAdmin}/>
               <VendorProtectedRoute path="/vendor" component={ListMenuItemsVendor}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

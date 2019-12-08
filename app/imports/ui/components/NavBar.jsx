@@ -38,6 +38,8 @@ class NavBar extends React.Component {
                          exact to="/adminReviews" key='admin'>MANAGE REVIEWS</Dropdown.Item>
               <Dropdown.Item as={NavLink} className='montserrat' activeClassName="active"
                          exact to="/listFavorites" key='admin'>MANAGE FAVORITES</Dropdown.Item>
+                <Dropdown.Item as={NavLink} className='montserrat' activeClassName="active"
+                               exact to="/users" key='admin'>MANAGE USERS</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
             </Menu.Item>

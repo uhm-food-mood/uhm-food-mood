@@ -6,6 +6,9 @@ import { Favorites } from '../../api/favorite/Favorites';
 
 /** This subscription publishes only the documents associated with the logged in user */
 
+Meteor.publish('Users', function publish() {
+  return Meteor.users.find();
+});
 
 Meteor.publish('MenuItems', function publish() {
   if (this.userId) {

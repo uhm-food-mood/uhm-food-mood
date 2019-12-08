@@ -3,10 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import { Form, Table, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Favorites } from '../../api/favorite/Favorites';
-import MenuTableFavoriteAdmin from './MenuTableFavoriteAdmin';
+import AccountTableAdmin from './AccountTableAdmin';
 
-class SearchFormFavoritesAdmin extends React.Component {
+class SearchFormAccountsAdmin extends React.Component {
 
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -23,10 +22,10 @@ class SearchFormFavoritesAdmin extends React.Component {
     const searchValue = this.state.query;
 
     if (searchValue) {
-      Meteor.subscribe('Allfavorites');
+      Meteor.subscribe('Users');
       // console.log('search:', this.state.query);
       return {
-        favorites: Favorites.find({ name: searchValue }).fetch(),
+        accounts: Meteor.users.find({ name: searchValue }).fetch(),
       };
       }
     return null;
@@ -39,19 +38,7 @@ class SearchFormFavoritesAdmin extends React.Component {
   }
 
   searchItems = (item) => {
-    if (item.owner.toLowerCase().includes(this.state.query.toLowerCase())) {
-      return true;
-    }
-    if (item.name.toLowerCase().includes(this.state.query.toLowerCase())) {
-      return true;
-    }
-    if (item.vendor.toLowerCase().includes(this.state.query.toLowerCase())) {
-      return true;
-    }
-    const nameVendor = `${item.name} ${item.vendor}`;
-    const vendorName = `${item.vendor} ${item.name}`;
-    if (nameVendor.toLowerCase().includes(this.state.query.toLowerCase())
-        || vendorName.toLowerCase().includes(this.state.query.toLowerCase())) {
+    if (item.username.toLowerCase().includes(this.state.query.toLowerCase())) {
       return true;
     }
     if (this.state.query === '') {
@@ -72,16 +59,17 @@ class SearchFormFavoritesAdmin extends React.Component {
           <Table celled>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Owner of Favorite</Table.HeaderCell>
-                <Table.HeaderCell>Food Name</Table.HeaderCell>
-                <Table.HeaderCell>Vendor</Table.HeaderCell>
+                <Table.HeaderCell>Username</Table.HeaderCell>
+                <Table.HeaderCell>Admin?</Table.HeaderCell>
+                <Table.HeaderCell>Vendor?</Table.HeaderCell>
+                <Table.HeaderCell>Add as Admin</Table.HeaderCell>
+                <Table.HeaderCell>Add as Vendor</Table.HeaderCell>
                 <Table.HeaderCell>Remove</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.props.favorites.filter(this.searchItems).map((favorites) => <MenuTableFavoriteAdmin
-                  key={favorites._id}
-                  favorites={favorites} />)}
+              {this.props.accounts.filter(this.searchItems).map((accounts) => <AccountTableAdmin key={accounts._id}
+                                                                                             accounts={accounts} />)}
             </Table.Body>
           </Table>
         </div>
@@ -89,17 +77,17 @@ class SearchFormFavoritesAdmin extends React.Component {
   }
 }
 
-SearchFormFavoritesAdmin.propTypes = {
-  favorites: PropTypes.array.isRequired,
+SearchFormAccountsAdmin.propTypes = {
+  accounts: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('AllFavorites');
+  const subscription = Meteor.subscribe('Users');
   return {
-    favorites: Favorites.find({}).fetch(),
+    accounts: Meteor.users.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(SearchFormFavoritesAdmin);
+})(SearchFormAccountsAdmin);
