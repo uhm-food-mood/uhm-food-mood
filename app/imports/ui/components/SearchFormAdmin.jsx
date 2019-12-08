@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Form, Card, Loader } from 'semantic-ui-react';
-import MenuItemAdmin from '/imports/ui/components/MenuItemAdmin';
+import { Form, Table, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { MenuItems } from '../../api/menu/MenuItems';
+import MenuTableAdmin from './MenuTableAdmin';
 
 class SearchFormAdmin extends React.Component {
 
@@ -82,10 +82,24 @@ class SearchFormAdmin extends React.Component {
           <Form.Input placeholder='Search...' value={this.state.query} onChange={this.handleInputChange} width={4}/>
           <br/>
         </Form>
-          <Card.Group itemsPerRow={3}>
-            {this.props.menuitems.filter(this.searchItems).map((menuitems, index) => <MenuItemAdmin key={index}
-                          menuitems={menuitems} />)}
-          </Card.Group>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Food Name</Table.HeaderCell>
+                <Table.HeaderCell>Vendor</Table.HeaderCell>
+                <Table.HeaderCell>Price</Table.HeaderCell>
+                <Table.HeaderCell>Availability</Table.HeaderCell>
+                <Table.HeaderCell>Availability times</Table.HeaderCell>
+                <Table.HeaderCell>Style</Table.HeaderCell>
+                <Table.HeaderCell>Edit</Table.HeaderCell>
+                <Table.HeaderCell>Remove</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {this.props.menuitems.filter(this.searchItems).map((menuitems) => <MenuTableAdmin key={menuitems._id}
+                                                                                             menuitems={menuitems} />)}
+            </Table.Body>
+          </Table>
         </div>
     );
   }
