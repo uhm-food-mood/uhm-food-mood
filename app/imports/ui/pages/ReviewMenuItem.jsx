@@ -62,7 +62,7 @@ class ReviewMenuItem extends React.Component {
         <div className='peach'>
           <Grid container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" inverted>Review Menu Item!</Header>
+              <Header as="h2" textAlign="center" className="Montserrat">REVIEW MENU ITEM</Header>
                 <BackButton/>
                 <br/>
                 <br/>
