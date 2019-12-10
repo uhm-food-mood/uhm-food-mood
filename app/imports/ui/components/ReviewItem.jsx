@@ -83,11 +83,11 @@ class ReviewItem extends React.Component {
             <Card.Description>
               {this.props.ReviewItems.description}
             </Card.Description>
-            {this.props.ReviewItems.owner === Meteor.user().username ? (
+            {Meteor.userId() !== null && this.props.ReviewItems.owner === Meteor.user().username ? (
                 <div>
                 <Card.Content extra>
                   <Button>
-                  <Link className='black' floated='left' to={`/editReview/${this.props.ReviewItems._id}`}>Edit</Link>
+                  <Link className='black' floated='left' to= {`/editReview/${this.props.ReviewItems._id}`}>Edit</Link>
                   </Button>
                   <Button color='red' floated='right' onClick={() => this.removeItem(this.props.ReviewItems._id)}>
                     Remove
