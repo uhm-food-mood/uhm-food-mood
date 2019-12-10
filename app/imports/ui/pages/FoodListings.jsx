@@ -40,10 +40,10 @@ export default class FoodListings extends React.Component {
                 </Grid.Column>
                 <Grid.Column width={3}>
                   <p>
-                    Dunkin' Donuts
+                    Dunkin&#39; Donuts
                   </p>
                   <p>
-                    Dunkin’ Donuts in Paradise Palms Cafe will keep Hawaii running with
+                    Dunkin&#39; Donuts in Paradise Palms Cafe will keep Hawaii running with
                     high-quality beverage offerings–including freshly-brewed Hot and Iced Coffees–paired
                     perfectly with delicious donuts, bakery good, sandwiches and more.
                   </p>
@@ -55,7 +55,7 @@ export default class FoodListings extends React.Component {
                 </Grid.Column>
                 <Grid.Column width={3}>
                   <p>
-                    Govinda's
+                    Govinda&#39;s
                   </p>
                   <p>
                     Govinda&apos;s offers a 100% pure vegetarian menu, with items low in cholesterol and mostly organic.
