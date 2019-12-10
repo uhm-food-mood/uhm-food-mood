@@ -85,9 +85,30 @@ class MenuItem extends React.Component {
             swal('Error', error.message, 'error');
           } else {
             swal('Success', 'Added to favorites!', 'success');
+            this.forceUpdate();
           }
         });
-    this.forceUpdate();
+  }
+
+  removeFavorite() {
+    swal({
+      title: 'Are you sure?',
+      text: 'It will disappear from your Favorites page, but you can re-favorite at any time in the Food Options page!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+        .then((willDelete) => {
+          if (willDelete) {
+            Favorites.remove(Favorites.findOne({ MenuId: this.props.menuitems._id })._id);
+            this.forceUpdate();
+            swal('Poof! You unfavorited this item!', {
+              icon: 'success',
+            });
+          } else {
+            swal('You canceled unfavoriting!');
+          }
+        });
   }
 
   render() {
@@ -120,16 +141,16 @@ class MenuItem extends React.Component {
                   Available now!
                 </Card.Description>
             ) : ''}
+            {Meteor.user() && !this.isFavorited() ? (
+                <Button color='grey' icon onClick={() => this.favorite()}>
+                  <Icon name='heart'/>
+                </Button>
+            ) : ''}
             {Meteor.user() && this.isFavorited() ? (
-                <Button color='red' icon onClick={() => this.favorite()}>
+                <Button color='red' icon onClick={() => this.removeFavorite()}>
                   <Icon name='heart'/>
                 </Button>
             ) : '' }
-            {Meteor.user() && !this.isFavorited() ? (
-              <Button icon onClick={() => this.favorite()}>
-              <Icon name='heart'/>
-              </Button>
-              ) : ''}
             {this.props.menuitems.ethnicity === 'Japanese' ? (
                 <Label color='red'>Japanese</Label>
             ) : ''}

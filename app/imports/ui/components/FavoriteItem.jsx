@@ -93,6 +93,9 @@ class FavoriteItem extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <Link to={`/review/${this.props.FavoriteItems.MenuId}`}>See Reviews</Link>
+            <Button color='black' floated='right'>
+              <Link className='review-button' to={`/addReview/${this.props.FavoriteItems.MenuId}`}>Add a Review</Link>
+            </Button>
           </Card.Content>
         </Card>
     );
