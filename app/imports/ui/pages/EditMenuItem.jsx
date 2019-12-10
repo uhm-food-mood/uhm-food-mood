@@ -35,7 +35,18 @@ const formSchema = new SimpleSchema({
       'Indian', 'Mexican', 'Hawaiian', 'Brazilian', 'Korean', 'Vietnamese'],
     defaultValue: 'Chinese',
   },
-  availability: { label: 'Days Open', type: String },
+  availableStart: {
+    label: 'Days open from:',
+    type: String,
+    allowedValues: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    defaultValue: 'Monday',
+  },
+  availableEnd: {
+    label: 'To:',
+    type: String,
+    allowedValues: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    defaultValue: 'Monday',
+  },
   starting: {
     label: 'Start availability time',
     type: String,
@@ -66,18 +77,19 @@ class EditMenuItem extends React.Component {
   /** On submit, insert the data. */
   submit(data) {
     const {
-      name, image, vendor, price, availability, starting, startingPeriod, ending, endingPeriod,
+      name, image, vendor, price, availableStart, availableEnd, starting, startingPeriod, ending, endingPeriod,
       vegan, ethnicity, _id } = data;
     const owner = Meteor.user().username;
     const id = this.props.doc._id;
-    console.log(id);
+    // console.log(id);
     const master = 'yes';
     MenuItems.update(_id, { $set: {
           name,
           image,
           vendor,
           price,
-          availability,
+          availableStart,
+          availableEnd,
           starting,
           startingPeriod,
           ending,
@@ -94,13 +106,14 @@ class EditMenuItem extends React.Component {
             swal('Success', 'Item updated successfully', 'success');
           }
         });
-    console.log(Favorites.find({ MenuId: id }));
+    // console.log(Favorites.find({ MenuId: id }));
     Favorites.find({ MenuId: id }).map((favorite) => Favorites.update(favorite._id, { $set: {
         name: name,
         image: image,
         vendor: vendor,
         price: price,
-        availability: availability,
+        availableStart: availableStart,
+        availableEnd: availableEnd,
         starting: starting,
         startingPeriod: startingPeriod,
         ending: ending,
@@ -139,11 +152,14 @@ class EditMenuItem extends React.Component {
                   <SelectField className='josefin' name='ethnicity'/>
                   </Form.Group>
                   <Form.Group widths='equal'>
-                  <TextField className='josefin' name='availability'/>
-                  <SelectField className='josefin' name='starting'/>
-                  <SelectField className='josefin' name='startingPeriod'/>
-                  <SelectField className='josefin' name='ending'/>
-                  <SelectField className='josefin' name='endingPeriod'/>
+                    <SelectField className='josefin' name='availableStart'/>
+                    <SelectField className='josefin' name='availableEnd'/>
+                  </Form.Group>
+                  <Form.Group>
+                    <SelectField className='josefin' name='starting'/>
+                    <SelectField className='josefin' name='startingPeriod'/>
+                    <SelectField className='josefin' name='ending'/>
+                    <SelectField className='josefin' name='endingPeriod'/>
                   </Form.Group>
                   <SubmitField className='josefin' value='Submit'/>
                   <ErrorsField/>

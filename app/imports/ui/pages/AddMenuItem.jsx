@@ -34,7 +34,18 @@ const formSchema = new SimpleSchema({
       'Indian', 'Mexican', 'Hawaiian', 'Brazilian', 'Korean', 'Vietnamese'],
     defaultValue: 'Chinese',
   },
-  availability: { label: 'Days Open', type: String },
+  availableStart: {
+    label: 'Days open from:',
+    type: String,
+    allowedValues: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    defaultValue: 'Monday',
+  },
+  availableEnd: {
+    label: 'To:',
+    type: String,
+    allowedValues: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    defaultValue: 'Monday',
+  },
   starting: {
     label: 'Start availability time',
     type: String,
@@ -66,7 +77,7 @@ class AddMenuItem extends React.Component {
   submit(data, formRef) {
     let {
       // eslint-disable-next-line prefer-const
-      name, image, vendor, price, availability, starting, startingPeriod, ending, endingPeriod,
+      name, image, vendor, price, availableStart, availableEnd, starting, startingPeriod, ending, endingPeriod,
       // eslint-disable-next-line prefer-const
       vegan, ethnicity } = data;
     const owner = Meteor.user().username;
@@ -81,7 +92,8 @@ class AddMenuItem extends React.Component {
           image,
           vendor,
           price,
-          availability,
+          availableStart,
+          availableEnd,
           starting,
           startingPeriod,
           ending,
@@ -128,8 +140,11 @@ class AddMenuItem extends React.Component {
                   <SelectField className='josefin' name='vegan'/>
                   <SelectField className='josefin' name='ethnicity'/>
                   </Form.Group>
-                  <Form.Group widths='equal'>
-                  <TextField className='josefin' name='availability'/>
+                  <Form.Group>
+                    <SelectField className='josefin' name='availableStart'/>
+                    <SelectField className='josefin' name='availableEnd'/>
+                  </Form.Group>
+                  <Form.Group>
                   <SelectField className='josefin' name='starting'/>
                   <SelectField className='josefin' name='startingPeriod'/>
                   <SelectField className='josefin' name='ending'/>

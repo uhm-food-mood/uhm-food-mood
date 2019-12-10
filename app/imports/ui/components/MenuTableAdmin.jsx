@@ -40,7 +40,7 @@ class MenuTableAdmin extends React.Component {
               <Table.Cell>{this.props.menuitems.vendor}</Table.Cell>
           ) : ''}
           <Table.Cell>{this.props.menuitems.price}</Table.Cell>
-          <Table.Cell>{this.props.menuitems.availability}</Table.Cell>
+          <Table.Cell>{this.props.menuitems.availableStart} - {this.props.menuitems.availableEnd}</Table.Cell>
           <Table.Cell>{this.props.menuitems.starting}:00 {this.props.menuitems.startingPeriod} -
             {this.props.menuitems.ending}:00 {this.props.menuitems.endingPeriod}</Table.Cell>
           <Table.Cell>{this.props.menuitems.ethnicity}</Table.Cell>

@@ -10,7 +10,7 @@ import { Favorites } from '../../api/favorite/Favorites';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 
-function available(starting, startingPeriod, ending, endingPeriod) {
+function available(starting, startingPeriod, ending, endingPeriod, startingDay, endingDay) {
   // eslint-disable-next-line radix
   let start = moment().hour(parseInt(starting) - 1);
   if (startingPeriod === 'PM') {
@@ -24,8 +24,12 @@ function available(starting, startingPeriod, ending, endingPeriod) {
     // eslint-disable-next-line radix
     end = moment().hour(parseInt(ending) + 12);
   }
+  const startDay = moment(`${startingDay} 0`, 'dddd hh');
+  const endDay = moment(`${endingDay} 23:59`, 'dddd hh:mm');
+  // console.log(startDay);
+  // console.log(endDay);
   // console.log(end);
-  if (moment().isBefore(end) && moment().isAfter(start)) {
+  if (moment().isBefore(end) && moment().isAfter(start) && moment().isBefore(endDay) && moment().isAfter(startDay)) {
     // console.log(true);
     return true;
   }
@@ -37,7 +41,7 @@ class MenuItem extends React.Component {
 
   isFavorited() {
     if (Favorites.findOne({ MenuId: this.props.menuitems._id })) {
-      console.log(Favorites.findOne({ MenuId: this.props.menuitems._id }));
+      // console.log(Favorites.findOne({ MenuId: this.props.menuitems._id }));
       return true;
     }
     return false;
@@ -50,7 +54,8 @@ class MenuItem extends React.Component {
     const image = this.props.menuitems.image;
     const vendor = this.props.menuitems.vendor;
     const price = this.props.menuitems.price;
-    const availability = this.props.menuitems.availability;
+    const availableStart = this.props.menuitems.availableStart;
+    const availableEnd = this.props.menuitems.availableEnd;
     const starting = this.props.menuitems.starting;
     const startingPeriod = this.props.menuitems.startingPeriod;
     const ending = this.props.menuitems.ending;
@@ -64,7 +69,8 @@ class MenuItem extends React.Component {
           image,
           vendor,
           price,
-          availability,
+          availableStart,
+          availableEnd,
           starting,
           startingPeriod,
           ending,
@@ -98,14 +104,18 @@ class MenuItem extends React.Component {
             />
             <Card.Header>{this.props.menuitems.name}</Card.Header>
             <Card.Meta>{this.props.menuitems.vendor} - ${this.props.menuitems.price}</Card.Meta>
-            <Card.Description>{this.props.menuitems.availability}</Card.Description>
+            <Card.Description>
+              {this.props.menuitems.availableStart} - {this.props.menuitems.availableEnd}
+            </Card.Description>
             <Card.Description>{this.props.menuitems.starting}:00 {this.props.menuitems.startingPeriod} -
               {this.props.menuitems.ending}:00 {this.props.menuitems.endingPeriod}
             </Card.Description>
             {available(this.props.menuitems.starting,
                 this.props.menuitems.startingPeriod,
                 this.props.menuitems.ending,
-                this.props.menuitems.endingPeriod) ? (
+                this.props.menuitems.endingPeriod,
+                this.props.menuitems.availableStart,
+                this.props.menuitems.availableEnd) ? (
                 <Card.Description className="green">
                   Available now!
                 </Card.Description>

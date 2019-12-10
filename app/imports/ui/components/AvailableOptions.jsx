@@ -27,8 +27,12 @@ class AvailableOptions extends React.Component {
       // eslint-disable-next-line radix
       end = moment().hour(parseInt(item.ending) + 12);
     }
+    const startDay = moment(`${item.availableStart} 0`, 'dddd hh');
+    const endDay = moment(`${item.availableEnd} 23:59`, 'dddd hh:mm');
+    // console.log(startDay);
+    // console.log(endDay);
     // console.log(end);
-    if (moment().isBefore(end) && moment().isAfter(start)) {
+    if (moment().isBefore(end) && moment().isAfter(start) && moment().isBefore(endDay) && moment().isAfter(startDay)) {
       // console.log(true);
       return true;
     }
