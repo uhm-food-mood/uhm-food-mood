@@ -22,9 +22,11 @@ class ListReviews extends React.Component {
           <Container>
             <Header as="h2" textAlign="center" className="Montserrat">Reviews</Header>
             <Divider/>
-            <Button color='black'>
-              <Link className='review-button' to={`/addReview/${this.props.id}`}>Add a Review</Link>
-            </Button>
+            {Meteor.user() ? (
+                <Button color='black'>
+                  <Link className='review-button' to={`/addReview/${this.props.id}`}>Add a Review</Link>
+                </Button>
+            ) : '' }
             <br/>
             <br/>
             <Card.Group itemsPerRow={3}>
