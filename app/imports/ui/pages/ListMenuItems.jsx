@@ -1,10 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Divider, Message } from 'semantic-ui-react';
+import { Container, Header, Loader, Divider } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Favorites } from '../../api/favorite/Favorites';
 import SearchFormUser from '../components/SearchFormUser';
+import SearchInstructions from '../components/SearchInstructions';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListMenuItems extends React.Component {
@@ -21,21 +22,7 @@ class ListMenuItems extends React.Component {
         <Container>
           <Header as="h2" textAlign="center" className="Montserrat">YOUR FAVORITES</Header>
           <Divider inverted/>
-          <Message>
-            <Message.Header>Tips for Searching</Message.Header>
-            <p>Search for food below.</p>
-            <ul>
-              <li>
-                You can search by name, vendor, and style (ex. Chinese).
-              </li>
-              <li>
-                You can also search for vegan food by searching &#39;vegan&#39;.
-              </li>
-              <li>
-                Click the &#39;Food Available Now&#39; button to see food available right now.
-              </li>
-            </ul>
-          </Message>
+          <SearchInstructions/>
           <SearchFormUser />
           <br/>
         </Container>
