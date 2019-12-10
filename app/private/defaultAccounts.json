@@ -1,0 +1,23 @@
+[
+  { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
+  { "email": "john@foo.com", "password": "changeme" },
+  { "email":  "vendor@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "daspot@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "doner@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "dunkin@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "govinda@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "holoholo@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "hottacos@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "justice@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "kamitoku@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "landl@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "lasoon@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "lecrepe@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "ono@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "panda@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "rocket@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "sistah@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "bean@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "baale@foo.com", "password":  "changeme", "role":  "vendor" },
+  { "email":  "jamba@foo.com", "password":  "changeme", "role":  "vendor" }
+]

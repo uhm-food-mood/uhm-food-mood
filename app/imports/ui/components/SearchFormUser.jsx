@@ -30,20 +30,25 @@ class SearchFormUser extends React.Component {
 
   searchItems = (item) => {
     // eslint-disable-next-line radix
-    let start = moment().hour(parseInt(item.starting));
+    let start = moment().hour(parseInt(item.starting) - 1);
     if (item.startingPeriod === 'PM') {
       // eslint-disable-next-line radix
       start = moment().hour(parseInt(item.starting) + 12);
     }
     // console.log(start);
     // eslint-disable-next-line radix
-    let end = moment().hour(parseInt(item.ending));
+    let end = moment().hour(parseInt(item.ending) - 1);
     if (item.endingPeriod === 'PM') {
       // eslint-disable-next-line radix
       end = moment().hour(parseInt(item.ending) + 12);
     }
+    const startDay = moment(`${item.availableStart} 0`, 'dddd hh');
+    const endDay = moment(`${item.availableEnd} 23:59`, 'dddd hh:mm');
+    // console.log(startDay);
+    // console.log(endDay);
     // console.log(end);
-    if (moment().isBefore(end) && moment().isAfter(start) && this.state.query === 'available') {
+    if (moment().isBefore(end) && moment().isAfter(start)
+        && moment().isBefore(endDay) && moment().isAfter(startDay) && this.state.query === 'available') {
       // console.log(true);
       return true;
     }
@@ -100,25 +105,28 @@ class SearchFormUser extends React.Component {
 
   available = (item) => {
     // eslint-disable-next-line radix
-    // console.log('sorting availability');
-    // eslint-disable-next-line radix
-    let start = moment().hour(parseInt(item.starting));
+    let start = moment().hour(parseInt(item.starting) - 1);
     if (item.startingPeriod === 'PM') {
       // eslint-disable-next-line radix
       start = moment().hour(parseInt(item.starting) + 12);
     }
     // console.log(start);
     // eslint-disable-next-line radix
-    let end = moment().hour(parseInt(item.ending));
+    let end = moment().hour(parseInt(item.ending) - 1);
     if (item.endingPeriod === 'PM') {
       // eslint-disable-next-line radix
       end = moment().hour(parseInt(item.ending) + 12);
     }
+    const startDay = moment(`${item.availableStart} 0`, 'dddd hh');
+    const endDay = moment(`${item.availableEnd} 23:59`, 'dddd hh:mm');
+    // console.log(startDay);
+    // console.log(endDay);
     // console.log(end);
-    if (moment().isBefore(end) && moment().isAfter(start)) {
+    if (moment().isBefore(end) && moment().isAfter(start) && moment().isBefore(endDay) && moment().isAfter(startDay)) {
       // console.log(true);
       return true;
     }
+    // console.log(false);
     return false;
   }
 
