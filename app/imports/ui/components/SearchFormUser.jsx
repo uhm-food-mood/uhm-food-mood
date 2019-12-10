@@ -137,9 +137,16 @@ class SearchFormUser extends React.Component {
           <Form.Input placeholder='Search...' value={this.state.query} onChange={this.handleInputChange} width={4}/>
           <br/>
         </Form>
-          <Button onClick={this.wasClicked}>
-            Food Available Now
-          </Button>
+          {!active ? (
+              <Button onClick={this.wasClicked}>
+                Food Available Now
+              </Button>
+          ) : '' }
+          {active ? (
+              <Button color='green' onClick={this.wasClicked}>
+                Food Available Now
+              </Button>
+          ) : '' }
           <br/>
           <br/>
           {active === true ? (
