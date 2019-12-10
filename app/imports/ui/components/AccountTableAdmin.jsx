@@ -7,19 +7,6 @@ import { Roles } from 'meteor/alanning:roles';
 import swal from 'sweetalert';
 
 /** Renders a single row in the List accountss table. See pages/Listaccountss.jsx. */
-Meteor.methods({
-  // eslint-disable-next-line meteor/audit-argument-checks
-  delete(docID) {
-    if (!Meteor.isServer) return;
-
-    try {
-      Meteor.users.remove(docID);
-    } catch (e) {
-      // handle this however you want
-      throw new Meteor.Error('Delete', 'Failed to remove user');
-    }
-  },
-});
 
 class AccountTableAdmin extends React.Component {
   removeItem(docID) {
@@ -32,9 +19,15 @@ class AccountTableAdmin extends React.Component {
     })
         .then((willDelete) => {
           if (willDelete) {
-            Meteor.call(delete(this.props.accounts._id));
-            swal('Poof! This account has been deleted!', {
-              icon: 'success',
+            Meteor.call('deleteUser', docID,
+            (error) => {
+              if (error) {
+                swal('Error', error.message, 'error');
+              } else {
+                swal('Poof! This account has been deleted!', {
+                  icon: 'success',
+                });
+              }
             });
           } else {
             swal('You canceled the deletion!');
@@ -50,11 +43,19 @@ class AccountTableAdmin extends React.Component {
       buttons: true,
       dangerMode: true,
     })
-        .then((willDelete) => {
-          if (willDelete) {
-            Roles.addUsersToRoles(id, 'admin');
-            swal('Poof! This account has been added as an admin!', {
-              icon: 'success',
+        .then((willAdmin) => {
+          if (willAdmin) {
+            Meteor.call('setRoleOnUser', {
+              user: id,
+              role: 'admin',
+            }, (error) => {
+              if (error) {
+                swal('Error', error.message, 'error');
+              } else {
+                swal('Poof! This account has been added as an admin!', {
+                  icon: 'success',
+                });
+              }
             });
           } else {
             swal('You canceled giving this user admin permissions!');
@@ -70,11 +71,19 @@ class AccountTableAdmin extends React.Component {
       buttons: true,
       dangerMode: true,
     })
-        .then((willDelete) => {
-          if (willDelete) {
-            Roles.addUsersToRoles(id, 'vendor');
-            swal('Poof! This account has been added as a vendor!', {
-              icon: 'success',
+        .then((willVendor) => {
+          if (willVendor) {
+            Meteor.call('setRoleOnUser', {
+              user: id,
+              role: 'vendor',
+            }, (error) => {
+              if (error) {
+                swal('Error', error.message, 'error');
+              } else {
+                swal('Poof! This account has been added as a vendor!', {
+                  icon: 'success',
+                });
+              }
             });
           } else {
             swal('You canceled giving this user vendor permissions!');

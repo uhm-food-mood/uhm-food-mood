@@ -10,7 +10,7 @@ class ListTableAccountsAdmin extends React.Component {
     return (
         <div className="peach">
         <Container>
-          <Header as="h2" textAlign="center" className="Montserrat">ALL FAVORITES</Header>
+          <Header as="h2" textAlign="center" className="Montserrat">ALL USERS</Header>
           <Divider/>
           <SearchFormAccountsAdmin/>
           <br/>
