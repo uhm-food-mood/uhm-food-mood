@@ -29,6 +29,12 @@ class SearchInstructions extends Component {
               <li>
                 Click the &#39;Food Available Now&#39; button to see food available right now.
               </li>
+              <li>
+                Click the &#39;Sort by Rating&#39; button to sort by highest rated food.
+              </li>
+              <li>
+                Click both buttons to filter food available right now and sort by highest rated food!
+              </li>
             </ul>
           </Message>
       );
@@ -43,4 +49,4 @@ class SearchInstructions extends Component {
   }
 }
 
-export default SearchInstructions
+export default SearchInstructions;
