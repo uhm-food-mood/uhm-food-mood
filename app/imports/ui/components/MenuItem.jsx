@@ -14,14 +14,14 @@ import { Reviews } from '../../api/review/Reviews';
 function available(starting, startingPeriod, ending, endingPeriod, startingDay, endingDay) {
   // eslint-disable-next-line radix
   let start = moment().hour(parseInt(starting) - 1);
-  if (startingPeriod === 'PM') {
+  if (startingPeriod === 'PM' && starting !== 12) {
     // eslint-disable-next-line radix
     start = moment().hour(parseInt(starting) + 12);
   }
   // console.log(start);
   // eslint-disable-next-line radix
   let end = moment().hour(parseInt(ending) - 1);
-  if (endingPeriod === 'PM') {
+  if (endingPeriod === 'PM' && ending !== 12) {
     // eslint-disable-next-line radix
     end = moment().hour(parseInt(ending) + 12);
   }
