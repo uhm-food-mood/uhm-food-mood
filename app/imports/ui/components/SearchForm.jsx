@@ -149,9 +149,15 @@ class SearchForm extends React.Component {
                     key={index} menuitems={menuitems} />)}
               </Card.Group>
           ) : ''}
-          {sorted === true ? (
+          {active === false && sorted === true ? (
               <Card.Group itemsPerRow={3}>
                 {this.props.sorteditems.filter(this.searchItems).map((menuitems, index) => <MenuItem
+                    key={index} menuitems={menuitems} />)}
+              </Card.Group>
+          ) : ''}
+          {active === true && sorted === true ? (
+              <Card.Group itemsPerRow={3}>
+                {this.props.sortedAvailableItems.filter(this.searchItems).map((menuitems, index) => <MenuItem
                     key={index} menuitems={menuitems} />)}
               </Card.Group>
           ) : ''}
@@ -164,6 +170,7 @@ SearchForm.propTypes = {
   menuitems: PropTypes.array.isRequired,
   availableitems: PropTypes.array.isRequired,
   sorteditems: PropTypes.array.isRequired,
+  sortedAvailableItems: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -199,36 +206,38 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe('AllMenuItems');
   const subscription2 = Meteor.subscribe('Reviews');
   const menu = MenuItems.find({}).fetch();
+  const sortedMenu = menu.sort(function (a, b) {
+    const first = a;
+    const total1 = Reviews.find({ menuId: first._id }).fetch();
+    let average1 = Object.values(total1).reduce((t, { rating }) => t + rating, 0);
+    // console.log(average);
+    const length = Reviews.find({ menuId: first._id }).fetch().length;
+    // console.log(length);
+    average1 /= length;
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(average1)) {
+      average1 = 0;
+    }
+    // console.log(`average1: ${average1}`);
+    const second = b;
+    const total2 = Reviews.find({ menuId: second._id }).fetch();
+    let average2 = Object.values(total2).reduce((t, { rating }) => t + rating, 0);
+    // console.log(average);
+    const length2 = Reviews.find({ menuId: second._id }).fetch().length;
+    // console.log(length);
+    average2 /= length2;
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(average2)) {
+      average2 = 0;
+    }
+    // console.log(`average2: ${average2}`);
+    return average2 - average1;
+  });
   return {
     menuitems: MenuItems.find({}).fetch(),
     availableitems: menu.filter(available),
-    sorteditems: menu.sort(function (a, b) {
-      const first = a;
-      const total1 = Reviews.find({ menuId: first._id }).fetch();
-      let average1 = Object.values(total1).reduce((t, { rating }) => t + rating, 0);
-      // console.log(average);
-      const length = Reviews.find({ menuId: first._id }).fetch().length;
-      // console.log(length);
-      average1 /= length;
-      // eslint-disable-next-line no-restricted-globals
-      if (isNaN(average1)) {
-        average1 = 0;
-      }
-      // console.log(`average1: ${average1}`);
-      const second = b;
-      const total2 = Reviews.find({ menuId: second._id }).fetch();
-      let average2 = Object.values(total2).reduce((t, { rating }) => t + rating, 0);
-      // console.log(average);
-      const length2 = Reviews.find({ menuId: second._id }).fetch().length;
-      // console.log(length);
-      average2 /= length2;
-      // eslint-disable-next-line no-restricted-globals
-      if (isNaN(average2)) {
-        average2 = 0;
-      }
-      // console.log(`average2: ${average2}`);
-      return average2 - average1;
-    }),
+    sorteditems: sortedMenu,
+    sortedAvailableItems: sortedMenu.filter(available),
     ready: subscription.ready() && subscription2.ready(),
   };
 })(SearchForm);
