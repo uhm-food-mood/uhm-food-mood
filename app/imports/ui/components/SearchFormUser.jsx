@@ -127,14 +127,14 @@ export default withTracker(() => {
   function available(item) {
     // eslint-disable-next-line radix
     let start = moment().hour(parseInt(item.starting) - 1);
-    if (item.startingPeriod === 'PM') {
+    if (item.startingPeriod === 'PM' && item.starting !== 12) {
       // eslint-disable-next-line radix
       start = moment().hour(parseInt(item.starting) + 12);
     }
     // console.log(start);
     // eslint-disable-next-line radix
     let end = moment().hour(parseInt(item.ending) - 1);
-    if (item.endingPeriod === 'PM') {
+    if (item.endingPeriod === 'PM' && item.ending !== 12) {
       // eslint-disable-next-line radix
       end = moment().hour(parseInt(item.ending) + 12);
     }

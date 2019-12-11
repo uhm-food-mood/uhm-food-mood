@@ -1,10 +1,13 @@
 import React from 'react';
-import { Card, Image, Label, Button } from 'semantic-ui-react';
+import { Card, Image, Label, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { withTracker } from 'meteor/react-meteor-data';
 import moment from 'moment';
 import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
 import { Favorites } from '../../api/favorite/Favorites';
+import { Reviews } from '../../api/review/Reviews';
 
 
 function available(starting, startingPeriod, ending, endingPeriod, startingDay, endingDay) {
@@ -12,14 +15,14 @@ function available(starting, startingPeriod, ending, endingPeriod, startingDay, 
   let start = moment().hour(parseInt(starting) - 1);
   if (startingPeriod === 'PM') {
     // eslint-disable-next-line radix
-    start = moment().hour(parseInt(starting) + 12);
+    start = moment().hour(parseInt(starting) + 12 && starting !== 12);
   }
   // console.log(start);
   // eslint-disable-next-line radix
   let end = moment().hour(parseInt(ending) - 1);
   if (endingPeriod === 'PM') {
     // eslint-disable-next-line radix
-    end = moment().hour(parseInt(ending) + 12);
+    end = moment().hour(parseInt(ending) + 12 && ending !== 12);
   }
   const startDay = moment(`${startingDay} 0`, 'dddd hh');
   const endDay = moment(`${endingDay} 23:59`, 'dddd hh:mm');
@@ -57,6 +60,26 @@ class FavoriteItem extends React.Component {
         });
   }
 
+  average() {
+    const total = Reviews.find({ menuId: this.props.FavoriteItems.MenuId }).fetch();
+    let average = Object.values(total).reduce((t, { rating }) => t + rating, 0);
+    // console.log(average);
+    const length = Reviews.find({ menuId: this.props.FavoriteItems.MenuId }).fetch().length;
+    // console.log(length);
+    average /= length;
+    // console.log(average);
+    return average;
+  }
+
+  checkRating() {
+    if (Reviews.find({ menuId: this.props.FavoriteItems.MenuId }).fetch().length > 0) {
+      // console.log('checked');
+      return true;
+    }
+    // console.log('unchecked');
+    return false;
+  }
+
   render() {
     return (
         <Card>
@@ -67,6 +90,60 @@ class FavoriteItem extends React.Component {
             />
             <Card.Header>{this.props.FavoriteItems.name}</Card.Header>
             <Card.Meta>{this.props.FavoriteItems.vendor} - ${this.props.FavoriteItems.price}</Card.Meta>
+            {this.checkRating() && this.average() > 0 && this.average() <= 1 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.checkRating() && this.average() > 1 && this.average() <= 2 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.checkRating() && this.average() > 2 && this.average() <= 3 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.checkRating() && this.average() > 3 && this.average() <= 4 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.checkRating() && this.average() > 4 && this.average() <= 5 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                </Card.Description>
+            ) : ''}
+            {!this.checkRating() ? (
+                <Card.Description>
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
             <Card.Description>
               {this.props.FavoriteItems.availableStart} - {this.props.FavoriteItems.availableEnd}
             </Card.Description>
@@ -108,4 +185,11 @@ FavoriteItem.propTypes = {
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(FavoriteItem);
+export default withTracker(() => {
+  // console.log(documentId);
+  const subscription = Meteor.subscribe('Favorites');
+  const subscription2 = Meteor.subscribe('Reviews');
+  return {
+    ready: subscription.ready() && subscription2.ready(),
+  };
+})(FavoriteItem);
