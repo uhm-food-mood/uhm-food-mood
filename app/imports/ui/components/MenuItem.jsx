@@ -7,20 +7,21 @@ import moment from 'moment';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { Favorites } from '../../api/favorite/Favorites';
+import { Reviews } from '../../api/review/Reviews';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 
 function available(starting, startingPeriod, ending, endingPeriod, startingDay, endingDay) {
   // eslint-disable-next-line radix
   let start = moment().hour(parseInt(starting) - 1);
-  if (startingPeriod === 'PM') {
+  if (startingPeriod === 'PM' && starting !== 12) {
     // eslint-disable-next-line radix
     start = moment().hour(parseInt(starting) + 12);
   }
   // console.log(start);
   // eslint-disable-next-line radix
   let end = moment().hour(parseInt(ending) - 1);
-  if (endingPeriod === 'PM') {
+  if (endingPeriod === 'PM' && ending !== 12) {
     // eslint-disable-next-line radix
     end = moment().hour(parseInt(ending) + 12);
   }
@@ -111,6 +112,26 @@ class MenuItem extends React.Component {
         });
   }
 
+  average() {
+    const total = Reviews.find({ menuId: this.props.menuitems._id }).fetch();
+    let average = Object.values(total).reduce((t, { rating }) => t + rating, 0);
+    // console.log(average);
+    const length = Reviews.find({ menuId: this.props.menuitems._id }).fetch().length;
+    // console.log(length);
+    average /= length;
+    // console.log(average);
+    return average;
+  }
+
+  checkRating() {
+    if (Reviews.find({ menuId: this.props.menuitems._id }).fetch().length > 0) {
+      // console.log('checked');
+      return true;
+    }
+    // console.log('unchecked');
+    return false;
+  }
+
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
@@ -125,6 +146,60 @@ class MenuItem extends React.Component {
             />
             <Card.Header>{this.props.menuitems.name}</Card.Header>
             <Card.Meta>{this.props.menuitems.vendor} - ${this.props.menuitems.price}</Card.Meta>
+              {this.checkRating() && this.average() > 0 && this.average() <= 1 ? (
+                  <Card.Description>
+                    <Icon name='star' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                <Icon name='star outline' />
+                <Icon name='star outline' />
+                </Card.Description>
+              ) : ''}
+            {this.checkRating() && this.average() > 1 && this.average() <= 2 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.checkRating() && this.average() > 2 && this.average() <= 3 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.checkRating() && this.average() > 3 && this.average() <= 4 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
+            {this.checkRating() && this.average() > 4 && this.average() <= 5 ? (
+                <Card.Description>
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                  <Icon name='star' />
+                </Card.Description>
+            ) : ''}
+            {!this.checkRating() ? (
+                <Card.Description>
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                  <Icon name='star outline' />
+                </Card.Description>
+            ) : ''}
             <Card.Description>
               {this.props.menuitems.availableStart} - {this.props.menuitems.availableEnd}
             </Card.Description>
@@ -217,7 +292,8 @@ MenuItem.propTypes = {
 export default withTracker(() => {
   // console.log(documentId);
   const subscription = Meteor.subscribe('Favorites');
+  const subscription2 = Meteor.subscribe('Reviews');
   return {
-    ready: subscription.ready(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(MenuItem);

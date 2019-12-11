@@ -6,8 +6,10 @@ import { withTracker } from 'meteor/react-meteor-data';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import { MenuItems } from '../../api/menu/MenuItems';
+import { Reviews } from '../../api/review/Reviews';
 
 let active = false;
+let sorted = false;
 
 class SearchForm extends React.Component {
 
@@ -93,6 +95,19 @@ class SearchForm extends React.Component {
     return active;
   }
 
+  isSorted = () => {
+    if (sorted === true) {
+      sorted = false;
+      this.forceUpdate();
+      return sorted;
+    }
+    if (sorted === false) {
+      sorted = true;
+    }
+    this.forceUpdate();
+    return sorted;
+  }
+
   renderPage() {
     return (
         <div>
@@ -110,17 +125,39 @@ class SearchForm extends React.Component {
                 Food Available Now
               </Button>
           ) : '' }
+          {!sorted ? (
+              <Button onClick={this.isSorted}>
+                Sort by rating
+              </Button>
+          ) : '' }
+          {sorted ? (
+              <Button color='green' onClick={this.isSorted}>
+                Sort by rating
+              </Button>
+          ) : '' }
           <br/>
           <br/>
-          {active === true ? (
+          {active === true && sorted === false ? (
               <Card.Group itemsPerRow={3}>
                 {this.props.availableitems.filter(this.searchItems).map((menuitems, index) => <MenuItem
                     key={index} menuitems={menuitems} />)}
               </Card.Group>
           ) : ''}
-          {active === false ? (
+          {active === false && sorted === false ? (
               <Card.Group itemsPerRow={3}>
                 {this.props.menuitems.filter(this.searchItems).map((menuitems, index) => <MenuItem
+                    key={index} menuitems={menuitems} />)}
+              </Card.Group>
+          ) : ''}
+          {active === false && sorted === true ? (
+              <Card.Group itemsPerRow={3}>
+                {this.props.sorteditems.filter(this.searchItems).map((menuitems, index) => <MenuItem
+                    key={index} menuitems={menuitems} />)}
+              </Card.Group>
+          ) : ''}
+          {active === true && sorted === true ? (
+              <Card.Group itemsPerRow={3}>
+                {this.props.sortedAvailableItems.filter(this.searchItems).map((menuitems, index) => <MenuItem
                     key={index} menuitems={menuitems} />)}
               </Card.Group>
           ) : ''}
@@ -132,6 +169,8 @@ class SearchForm extends React.Component {
 SearchForm.propTypes = {
   menuitems: PropTypes.array.isRequired,
   availableitems: PropTypes.array.isRequired,
+  sorteditems: PropTypes.array.isRequired,
+  sortedAvailableItems: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -140,14 +179,14 @@ export default withTracker(() => {
   function available(item) {
     // eslint-disable-next-line radix
     let start = moment().hour(parseInt(item.starting) - 1);
-    if (item.startingPeriod === 'PM') {
+    if (item.startingPeriod === 'PM' && item.starting !== 12) {
       // eslint-disable-next-line radix
       start = moment().hour(parseInt(item.starting) + 12);
     }
     // console.log(start);
     // eslint-disable-next-line radix
     let end = moment().hour(parseInt(item.ending) - 1);
-    if (item.endingPeriod === 'PM') {
+    if (item.endingPeriod === 'PM' && item.ending !== 12) {
       // eslint-disable-next-line radix
       end = moment().hour(parseInt(item.ending) + 12);
     }
@@ -165,10 +204,40 @@ export default withTracker(() => {
   }
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('AllMenuItems');
+  const subscription2 = Meteor.subscribe('Reviews');
   const menu = MenuItems.find({}).fetch();
+  const sortedMenu = menu.sort(function (a, b) {
+    const first = a;
+    const total1 = Reviews.find({ menuId: first._id }).fetch();
+    let average1 = Object.values(total1).reduce((t, { rating }) => t + rating, 0);
+    // console.log(average);
+    const length = Reviews.find({ menuId: first._id }).fetch().length;
+    // console.log(length);
+    average1 /= length;
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(average1)) {
+      average1 = 0;
+    }
+    // console.log(`average1: ${average1}`);
+    const second = b;
+    const total2 = Reviews.find({ menuId: second._id }).fetch();
+    let average2 = Object.values(total2).reduce((t, { rating }) => t + rating, 0);
+    // console.log(average);
+    const length2 = Reviews.find({ menuId: second._id }).fetch().length;
+    // console.log(length);
+    average2 /= length2;
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(average2)) {
+      average2 = 0;
+    }
+    // console.log(`average2: ${average2}`);
+    return average2 - average1;
+  });
   return {
     menuitems: MenuItems.find({}).fetch(),
     availableitems: menu.filter(available),
-    ready: subscription.ready(),
+    sorteditems: sortedMenu,
+    sortedAvailableItems: sortedMenu.filter(available),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(SearchForm);
