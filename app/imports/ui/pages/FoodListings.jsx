@@ -17,6 +17,7 @@ class FoodListings extends React.Component {
               {this.props.vendors.map((vendors, index) => <VendorCard
                   key={index} vendors={vendors} />)}
             </Card.Group>
+            <br/>
           </Container>
         </div>
     );
