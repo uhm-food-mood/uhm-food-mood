@@ -1,10 +1,12 @@
 import { MenuItems } from '../../api/menu/MenuItems';
 import { Names } from '../../api/name/Names';
+import { Vendors } from '../../api/vendor/Vendors';
 
 /* eslint-disable no-console */
 
 const defaultMenu = JSON.parse(Assets.getText('menuitems.json'));
 const defaultNames = JSON.parse(Assets.getText('names.json'));
+const defaultVendors = JSON.parse(Assets.getText('defaultVendors.json'));
 
 function addMenu(data) {
   console.log(`  Adding: ${data.name} (${data.owner})`);
@@ -26,4 +28,12 @@ function addNames(data) {
 
 if (Names.find().count() === 0) {
   defaultNames.map(data => addNames(data));
+}
+function addVendors(data) {
+  console.log(` Adding: Vendor listing: ${data.name} for ${data.owner}`);
+  Vendors.insert(data);
+}
+
+if (Vendors.find().count() === 0) {
+  defaultVendors.map(data => addVendors(data));
 }

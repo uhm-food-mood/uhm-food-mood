@@ -4,6 +4,7 @@ import { MenuItems } from '../../api/menu/MenuItems';
 import { Reviews } from '../../api/review/Reviews';
 import { Favorites } from '../../api/favorite/Favorites';
 import { Names } from '../../api/name/Names';
+import { Vendors } from '../../api/vendor/Vendors';
 
 /** This subscription publishes only the documents associated with the logged in user */
 
@@ -62,4 +63,7 @@ Meteor.publish('UserReviews', function publish() {
 });
 Meteor.publish('Names', function publish() {
   return Names.find();
+});
+Meteor.publish('Vendors', function publish() {
+  return Vendors.find();
 });
