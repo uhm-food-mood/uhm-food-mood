@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { MenuItems } from '../../api/menu/MenuItems';
 import SearchForm from '../components/SearchForm';
+import SearchInstructions from '../components/SearchInstructions';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListAllMenuItems extends React.Component {
@@ -21,6 +22,7 @@ class ListAllMenuItems extends React.Component {
         <Container>
           <Header as="h2" textAlign="center" className="Montserrat">FOOD OPTIONS</Header>
           <Divider/>
+          <SearchInstructions/>
           <SearchForm />
         </Container>
           <br/>

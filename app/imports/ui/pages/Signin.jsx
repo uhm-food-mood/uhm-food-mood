@@ -45,11 +45,11 @@ export default class Signin extends React.Component {
       <Container className='sign'>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Login to your account
-            </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
+                <Header as="h2" textAlign="center">
+                  Login to your account
+                </Header>
                 <Form.Input
                   label="Email"
                   icon="user"
@@ -68,7 +68,8 @@ export default class Signin extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button content="Submit"/>
+                <Form.Button fluid content="Submit"/>
+                <br/>
               </Segment>
             </Form>
             <Message>
@@ -83,6 +84,7 @@ export default class Signin extends React.Component {
                 content={this.state.error}
               />
             )}
+            <br/>
           </Grid.Column>
         </Grid>
       </Container>

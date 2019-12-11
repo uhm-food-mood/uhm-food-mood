@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Favorites } from '../../api/favorite/Favorites';
 import SearchFormUser from '../components/SearchFormUser';
+import SearchInstructions from '../components/SearchInstructions';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListMenuItems extends React.Component {
@@ -21,6 +22,7 @@ class ListMenuItems extends React.Component {
         <Container>
           <Header as="h2" textAlign="center" className="Montserrat">YOUR FAVORITES</Header>
           <Divider inverted/>
+          <SearchInstructions/>
           <SearchFormUser />
           <br/>
         </Container>

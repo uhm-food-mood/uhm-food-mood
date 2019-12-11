@@ -93,7 +93,51 @@ class SearchForm extends React.Component {
     return active;
   }
 
-  available = (item) => {
+  renderPage() {
+    return (
+        <div>
+        <Form onSubmit={this.handleFormSubmit}>
+          <Form.Input placeholder='Search...' value={this.state.query} onChange={this.handleInputChange} width={4}/>
+          <br/>
+        </Form>
+          {!active ? (
+              <Button onClick={this.wasClicked}>
+                Food Available Now
+              </Button>
+          ) : '' }
+          {active ? (
+              <Button color='green' onClick={this.wasClicked}>
+                Food Available Now
+              </Button>
+          ) : '' }
+          <br/>
+          <br/>
+          {active === true ? (
+              <Card.Group itemsPerRow={3}>
+                {this.props.availableitems.filter(this.searchItems).map((menuitems, index) => <MenuItem
+                    key={index} menuitems={menuitems} />)}
+              </Card.Group>
+          ) : ''}
+          {active === false ? (
+              <Card.Group itemsPerRow={3}>
+                {this.props.menuitems.filter(this.searchItems).map((menuitems, index) => <MenuItem
+                    key={index} menuitems={menuitems} />)}
+              </Card.Group>
+          ) : ''}
+        </div>
+    );
+  }
+}
+
+SearchForm.propTypes = {
+  menuitems: PropTypes.array.isRequired,
+  availableitems: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+export default withTracker(() => {
+  function available(item) {
     // eslint-disable-next-line radix
     let start = moment().hour(parseInt(item.starting) - 1);
     if (item.startingPeriod === 'PM') {
@@ -119,47 +163,12 @@ class SearchForm extends React.Component {
     // console.log(false);
     return false;
   }
-
-  renderPage() {
-    return (
-        <div>
-        <Form onSubmit={this.handleFormSubmit}>
-          <Form.Input placeholder='Search...' value={this.state.query} onChange={this.handleInputChange} width={4}/>
-          <br/>
-        </Form>
-          <Button onClick={this.wasClicked}>
-            Food Available Now
-          </Button>
-          <br/>
-          <br/>
-          {active === true ? (
-              <Card.Group itemsPerRow={3}>
-                {this.props.menuitems.filter(this.available, this.searchItems).map((menuitems, index) => <MenuItem
-                    key={index} menuitems={menuitems} />)}
-              </Card.Group>
-          ) : ''}
-          {active === false ? (
-              <Card.Group itemsPerRow={3}>
-                {this.props.menuitems.filter(this.searchItems).map((menuitems, index) => <MenuItem
-                    key={index} menuitems={menuitems} />)}
-              </Card.Group>
-          ) : ''}
-        </div>
-    );
-  }
-}
-
-SearchForm.propTypes = {
-  menuitems: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
-};
-
-/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('AllMenuItems');
+  const menu = MenuItems.find({}).fetch();
   return {
     menuitems: MenuItems.find({}).fetch(),
+    availableitems: menu.filter(available),
     ready: subscription.ready(),
   };
 })(SearchForm);
