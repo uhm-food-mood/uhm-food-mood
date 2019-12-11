@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import MenuItem from '/imports/ui/components/MenuItem';
 import { MenuItems } from '../../api/menu/MenuItems';
+import { Reviews } from '../../api/review/Reviews';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -43,7 +44,7 @@ class Landing extends React.Component {
             <Container>
               <h1 className='center landing'>STUDENTS&#39; TOP CHOICES</h1>
               <Card.Group itemsPerRow={3}>
-                {this.props.menuitems.map((menuitems, index) => <MenuItem key={index} menuitems={menuitems}/>)}
+                {this.props.sorteditems.map((menuitems, index) => <MenuItem key={index} menuitems={menuitems}/>)}
               </Card.Group>
               <br/>
             </Container>
@@ -55,15 +56,46 @@ class Landing extends React.Component {
 
 Landing.propTypes = {
   menuitems: PropTypes.array.isRequired,
+  sorteditems: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
+  const menu = MenuItems.find({}).fetch();
+  const sortedMenu = menu.sort(function (a, b) {
+    const first = a;
+    const total1 = Reviews.find({ menuId: first._id }).fetch();
+    let average1 = Object.values(total1).reduce((t, { rating }) => t + rating, 0);
+    // console.log(average);
+    const length = Reviews.find({ menuId: first._id }).fetch().length;
+    // console.log(length);
+    average1 /= length;
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(average1)) {
+      average1 = 0;
+    }
+    // console.log(`average1: ${average1}`);
+    const second = b;
+    const total2 = Reviews.find({ menuId: second._id }).fetch();
+    let average2 = Object.values(total2).reduce((t, { rating }) => t + rating, 0);
+    // console.log(average);
+    const length2 = Reviews.find({ menuId: second._id }).fetch().length;
+    // console.log(length);
+    average2 /= length2;
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(average2)) {
+      average2 = 0;
+    }
+    // console.log(`average2: ${average2}`);
+    return average2 - average1;
+  });
   const subscription = Meteor.subscribe('AllMenuItems');
+  const subscription2 = Meteor.subscribe('Reviews');
   return {
     menuitems: MenuItems.find({}, { limit: 3 }).fetch(),
-    ready: subscription.ready(),
+    sorteditems: sortedMenu.slice(0, 3),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(Landing);
