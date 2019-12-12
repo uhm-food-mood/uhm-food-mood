@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Card } from 'semantic-ui-react';
+import { Container, Card, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
@@ -9,6 +9,10 @@ import { Vendors } from '../../api/vendor/Vendors';
 /** A simple static component to render some text for the landing page. */
 class FoodListings extends React.Component {
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  renderPage() {
     return (
         <div className='foodlistingsbg'>
           <Container>
