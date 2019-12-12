@@ -1,8 +1,9 @@
 import React from 'react';
-import { Image, Card } from 'semantic-ui-react';
+import { Image, Card, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
+import { Link } from 'react-router-dom';
 
 class VendorCard extends React.Component {
   render() {
@@ -13,6 +14,11 @@ class VendorCard extends React.Component {
         <Card.Header>{this.props.vendors.name}</Card.Header>
         <Card.Description>{this.props.vendors.description}</Card.Description>
       </Card.Content>
+        <Card.Content extra>
+        <Button color='black' floated='right'>
+          <Link className='review-button' to={`/vendors/${this.props.vendors._id}`}>See their food options</Link>
+        </Button>
+        </Card.Content>
     </Card>
   );
   }
