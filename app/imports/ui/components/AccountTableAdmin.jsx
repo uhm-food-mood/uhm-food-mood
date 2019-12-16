@@ -63,6 +63,34 @@ class AccountTableAdmin extends React.Component {
         });
   }
 
+  removeAdmin(id) {
+    swal({
+      title: 'Are you sure?',
+      text: 'This will remove this user as admin!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+        .then((willVendor) => {
+          if (willVendor) {
+            Meteor.call('removeRole', {
+              user: id,
+              role: 'admin',
+            }, (error) => {
+              if (error) {
+                swal('Error', error.message, 'error');
+              } else {
+                swal('Poof! This account has been removed as admin!', {
+                  icon: 'success',
+                });
+              }
+            });
+          } else {
+            swal('You canceled removing this user as admin!');
+          }
+        });
+  }
+
   addVendor(id) {
     swal({
       title: 'Are you sure?',
@@ -91,6 +119,34 @@ class AccountTableAdmin extends React.Component {
         });
   }
 
+  removeVendor(id) {
+    swal({
+      title: 'Are you sure?',
+      text: 'This will remove this user as a vendor!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+        .then((willVendor) => {
+          if (willVendor) {
+            Meteor.call('removeRole', {
+              user: id,
+              role: 'vendor',
+            }, (error) => {
+              if (error) {
+                swal('Error', error.message, 'error');
+              } else {
+                swal('Poof! This account has been removed as a vendor!', {
+                  icon: 'success',
+                });
+              }
+            });
+          } else {
+            swal('You canceled removing vendor permissions!');
+          }
+        });
+  }
+
   render() {
     return (
         <Table.Row>
@@ -112,13 +168,23 @@ class AccountTableAdmin extends React.Component {
             ) : ''}
           </Table.Cell>
           <Table.Cell>
-            <Button negative icon onClick={() => this.addAdmin(this.props.accounts._id)}>
+            <Button positive icon onClick={() => this.addAdmin(this.props.accounts._id)}>
               Add as Admin
             </Button>
           </Table.Cell>
           <Table.Cell>
-            <Button negative icon onClick={() => this.addVendor(this.props.accounts._id)}>
+            <Button negative icon onClick={() => this.removeAdmin(this.props.accounts._id)}>
+              Remove as Admin
+            </Button>
+          </Table.Cell>
+          <Table.Cell>
+            <Button positive icon onClick={() => this.addVendor(this.props.accounts._id)}>
               Add as Vendor
+            </Button>
+          </Table.Cell>
+          <Table.Cell>
+            <Button negative icon onClick={() => this.removeVendor(this.props.accounts._id)}>
+              Remove as Vendor
             </Button>
           </Table.Cell>
           <Table.Cell><Button negative icon onClick={() => this.removeItem(this.props.accounts._id)}>

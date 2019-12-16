@@ -63,7 +63,9 @@ class SearchFormAccountsAdmin extends React.Component {
                 <Table.HeaderCell>Admin?</Table.HeaderCell>
                 <Table.HeaderCell>Vendor?</Table.HeaderCell>
                 <Table.HeaderCell>Add as Admin</Table.HeaderCell>
+                <Table.HeaderCell>Remove as Admin</Table.HeaderCell>
                 <Table.HeaderCell>Add as Vendor</Table.HeaderCell>
+                <Table.HeaderCell>Remove as Vendor</Table.HeaderCell>
                 <Table.HeaderCell>Remove</Table.HeaderCell>
               </Table.Row>
             </Table.Header>

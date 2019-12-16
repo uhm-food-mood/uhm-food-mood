@@ -18,4 +18,13 @@ Meteor.methods({
       return exception;
     }
   },
+  // eslint-disable-next-line meteor/audit-argument-checks,consistent-return
+  removeRole(options) {
+    try {
+      // eslint-disable-next-line no-undef
+      Roles.removeUsersFromRoles(options.user, options.role);
+    } catch (exception) {
+      return exception;
+    }
+  },
 });
