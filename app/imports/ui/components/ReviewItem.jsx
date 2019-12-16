@@ -37,47 +37,47 @@ class ReviewItem extends React.Component {
             </Card.Meta>
             {this.props.ReviewItems.rating === 1 ? (
                 <Card.Description>
-                  <Icon name='star' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
                 </Card.Description>
             ) : ''}
             {this.props.ReviewItems.rating === 2 ? (
                 <Card.Description>
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
                 </Card.Description>
             ) : ''}
             {this.props.ReviewItems.rating === 3 ? (
                 <Card.Description>
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
                 </Card.Description>
             ) : ''}
             {this.props.ReviewItems.rating === 4 ? (
                 <Card.Description>
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star outline' />
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
                 </Card.Description>
             ) : ''}
             {this.props.ReviewItems.rating === 5 ? (
                 <Card.Description>
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
                 </Card.Description>
             ) : ''}
             <Card.Description>

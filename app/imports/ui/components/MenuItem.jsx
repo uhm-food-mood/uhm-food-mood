@@ -148,56 +148,56 @@ class MenuItem extends React.Component {
             <Card.Meta>{this.props.menuitems.vendor} - ${this.props.menuitems.price}</Card.Meta>
               {this.checkRating() && this.average() > 0 && this.average() <= 1 ? (
                   <Card.Description>
-                    <Icon name='star' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
-                <Icon name='star outline' />
-                <Icon name='star outline' />
+                    <Icon name='star' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                <Icon name='star outline' className='noHover'/>
+                <Icon name='star outline' className='noHover'/>
                 </Card.Description>
               ) : ''}
             {this.checkRating() && this.average() > 1 && this.average() <= 2 ? (
                 <Card.Description>
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
                 </Card.Description>
             ) : ''}
             {this.checkRating() && this.average() > 2 && this.average() <= 3 ? (
                 <Card.Description>
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
                 </Card.Description>
             ) : ''}
             {this.checkRating() && this.average() > 3 && this.average() <= 4 ? (
                 <Card.Description>
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star outline' />
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
                 </Card.Description>
             ) : ''}
             {this.checkRating() && this.average() > 4 && this.average() <= 5 ? (
                 <Card.Description>
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
-                  <Icon name='star' />
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
+                  <Icon name='star' className='noHover'/>
                 </Card.Description>
             ) : ''}
             {!this.checkRating() ? (
                 <Card.Description>
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
-                  <Icon name='star outline' />
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
+                  <Icon name='star outline' className='noHover'/>
                 </Card.Description>
             ) : ''}
             <Card.Description>

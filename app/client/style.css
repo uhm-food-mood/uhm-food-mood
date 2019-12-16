@@ -121,3 +121,6 @@
 .padding {
   margin-top: 12px;
 }
+.noHover {
+  pointer-events: none !important;
+}
