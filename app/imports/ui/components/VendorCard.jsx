@@ -15,9 +15,16 @@ class VendorCard extends React.Component {
         <Card.Description>{this.props.vendors.description}</Card.Description>
       </Card.Content>
         <Card.Content extra>
-        <Button color='black' floated='right'>
-          <Link className='review-button' to={`/vendors/${this.props.vendors._id}`}>See their food options</Link>
-        </Button>
+          {this.props.currentUser !== this.props.vendors.owner ? (
+              <Button color='black' floated='right'>
+                <Link className='review-button' to={`/vendors/${this.props.vendors._id}`}>See their food options</Link>
+              </Button>
+          ) : ''}
+          {this.props.currentUser === this.props.vendors.owner ? (
+              <Button color='black' floated='right'>
+                <Link className='review-button' to={`/vendors/${this.props.vendors._id}`}>See your food options</Link>
+              </Button>
+          ) : ''}
         </Card.Content>
     </Card>
   );
@@ -26,6 +33,7 @@ class VendorCard extends React.Component {
 
 VendorCard.propTypes = {
   vendors: PropTypes.object.isRequired,
+  currentUser: PropTypes.string,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -34,6 +42,7 @@ export default withTracker(() => {
   // console.log(documentId);
   const subscription = Meteor.subscribe('Vendors');
   return {
+    currentUser: Meteor.user() ? Meteor.user().username : '',
     ready: subscription.ready(),
   };
 })(VendorCard);
